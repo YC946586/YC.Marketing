@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YC.ClientView"
+             xmlns:workbench="clr-namespace:YC.ClientView.Workbench"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#E8E8E8">
@@ -12,12 +13,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid  Background="White" >
-            <TextBlock Text="控制台" FontSize="16" FontFamily="新宋体"  FontWeight="DemiBold"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15 0"/>
+            <TextBlock Text="控制台" FontSize="16" FontFamily="新宋体"  FontWeight="DemiBold"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Border  Background="{DynamicResource HaderIcon}"/>
-                <TextBlock Text="心里的花 我想要带你回家" Margin="30 0" VerticalAlignment="Center"></TextBlock>
+                <Border Width="40" Height="40" CornerRadius="5"  Background="{DynamicResource MainBack}"/>
+                <TextBlock Text="向日葵 永远只会朝着太阳" Margin="20 0" VerticalAlignment="Center"></TextBlock>
             </StackPanel>
         </Grid>
-        <ContentControl Background="Red" Grid.Row="1" FocusVisualStyle="{x:Null}" Margin="20" Content="{Binding Body}" />
+        <!--<ContentControl Background="Red" Grid.Row="1" FocusVisualStyle="{x:Null}" Margin="20" Content="{Binding Body}" />-->
+
+        <workbench:WorkbenchView Margin="20" Grid.Row="1"/>
     </Grid>
 </UserControl>

@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using YC.Client.Execute.UnityInjection.ViewDialog.CoreLib;
 using YC.Model;
 using YC.Model.IndexModel;
 
 namespace YC.ViewModel
 {
-   public  class MainViewModel: ViewModelBase
+   public  class MainViewModel: BaseHostDialogOperation
     {
         public MainViewModel()
         {
@@ -21,7 +22,7 @@ namespace YC.ViewModel
             model.UserInfo = new LoginUserInfo()
             {
                 UserName = "测试",
-                UserIcon = "MainBack",
+                UserIcon = "HaderIcon",
             };
 
             for (int i = 0; i < 5; i++)
@@ -44,6 +45,12 @@ namespace YC.ViewModel
                 RaisePropertyChanged(); }
         }
 
-       
+        /// <summary>
+        /// 初始化首页
+        /// </summary>
+        public void InitDefaultView()
+        {
+            
+        }
     }
 }

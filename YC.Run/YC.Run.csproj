@@ -93,11 +93,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\YC.ClientView\YC.ClientView.csproj">
-      <Project>{824ab66c-776f-4a80-9637-4cb7ccdba870}</Project>
-      <Name>YC.ClientView</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

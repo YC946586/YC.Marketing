@@ -69,6 +69,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acceptance.cs" />
+    <Compile Include="Workbench\WorkbenchView.xaml.cs">
+      <DependentUpon>WorkbenchView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainEmbed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +88,10 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Workbench\WorkbenchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -113,13 +121,15 @@
       <Project>{f19b0180-92fe-4faf-bdff-348217a4ad7c}</Project>
       <Name>YC.Client.Execute</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YC.Model\YC.Model.csproj">
+      <Project>{BBAA8359-E681-48DC-8D92-4AE9E92A80CD}</Project>
+      <Name>YC.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YC.ViewModel\YC.ViewModel.csproj">
       <Project>{55c78556-2bf7-40f1-a82d-280558483d4d}</Project>
       <Name>YC.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Workbench\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

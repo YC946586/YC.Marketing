@@ -67,10 +67,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MainBack.jpg" />
+    <Resource Include="Images\MainHader.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\MainHader.jpg" />
+    <Resource Include="Images\MainBack.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
