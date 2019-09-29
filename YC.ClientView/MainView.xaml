@@ -4,48 +4,106 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:YC.ViewModel;assembly=YC.ViewModel"
+        xmlns:converter="clr-namespace:YC.Client.Execute.Converter;assembly=YC.Client.Execute"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:clientView="clr-namespace:YC.ClientView"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         mc:Ignorable="d" WindowStyle="None"  Background="Transparent"
         Title="MainWindow" Height="768" Width="1366">
      <Window.DataContext>
         <viewModel:MainViewModel/>
      </Window.DataContext>
-    <Border BorderThickness="3" BorderBrush="Black"  CornerRadius="15,15,15,15"  Background="White" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <converter:NameToObjectConverter x:Key="imgConvert"/>
 
-        <ItemsControl ItemsSource="{Binding MainGroups}"    FocusVisualStyle="{x:Null}" HorizontalAlignment="Left"  VerticalAlignment="Top">
-            <!--<ItemsControl.ItemsPanel>
+            <Style x:Key="ButtonStylePopup" TargetType="{x:Type RadioButton }">
+                <Setter Property="Width" Value="120"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="20 15"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type RadioButton}">
+                            <Border x:Name="border"  CornerRadius="10">
+                                <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
+                                    <Path  Stretch="Uniform" Name="Path"  Fill="#535155"  Data="{Binding FunIcon,Converter={StaticResource imgConvert}}" Margin="10 0 15 0" Width="20" Height="20"    />
+                                    <TextBlock Name="TextBlock"  Text="{Binding FunName}" FontSize="12" Width="72"  Foreground="#535155" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="#242126"/>
+                                    <Setter Property="Foreground"  Value="White" TargetName="TextBlock"/>
+                                    <Setter Property="Fill"  Value="White" TargetName="Path"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="False">
+                                    <Setter Property="Background" Value="#242126" TargetName="border" />
+                                    <Setter Property="Foreground"  Value="White" TargetName="TextBlock"/>
+                                    <Setter Property="Fill"  Value="White" TargetName="Path"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Background" Value="#242126" TargetName="border" />
+                                    <Setter Property="Foreground"  Value="White" TargetName="TextBlock"/>
+                                    <Setter Property="Fill"  Value="White" TargetName="Path"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="False">
+                                    <Setter Property="Background" Value="Transparent" TargetName="border" />
+                                    <Setter Property="Foreground"  Value="#535155" TargetName="TextBlock"/>
+                                    <Setter Property="Fill"  Value="#535155" TargetName="Path"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Opacity" Value="0.23"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+        </Window.Resources>
+            <Border BorderThickness="5" BorderBrush="Black"  CornerRadius="15,15,15,15"  Background="White" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ItemsControl Grid.Column="0" BorderThickness="0 0 1 0" BorderBrush="#CCCCCC" ItemsSource="{Binding MainGroups}"    FocusVisualStyle="{x:Null}"  >
+                <!--<ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>-->
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="110"/>
-                        </Grid.RowDefinitions>
-                        <DockPanel  Grid.Row="0">
-                            <Path></Path>
-                            <TextBlock Text="{Binding UserInfo.UserName}"></TextBlock>
-                        </DockPanel>
-                        <ItemsControl Grid.Row="1" ItemsSource="{Binding Modules}" Margin="0,10,0,10">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Button   CommandParameter="{Binding}"></Button>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid  Width="{TemplateBinding ItemsControl.Width}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="110"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel   HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border Width="55" Height="55" Margin="0 10" CornerRadius="5" Background="{Binding UserInfo.UserIcon,Converter={StaticResource imgConvert}}"/>
+                                <TextBlock  HorizontalAlignment="Center" Text="{Binding UserInfo.UserName}"></TextBlock>
+                            </StackPanel>
+                            <ItemsControl Grid.Row="1" ItemsSource="{Binding Modules}" Margin="0,10,0,10">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <RadioButton  GroupName="FunName"   Style="{StaticResource ButtonStylePopup}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <!--右边的功能实现-->
+            <clientView:MainEmbed Grid.Column="1" Margin="0 0 15 0"/>
+        </Grid>
+       
     </Border>
     
 </Window>

@@ -55,7 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ICON\" />
-    <Folder Include="Images\" />
     <Folder Include="Style\" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainBack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\MainHader.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

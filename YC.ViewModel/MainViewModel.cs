@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using YC.Model;
+using YC.Model.IndexModel;
 
 namespace YC.ViewModel
 {
@@ -13,15 +14,22 @@ namespace YC.ViewModel
     {
         public MainViewModel()
         {
-            MainGroups=new ObservableCollection<MainModel>();
+            MainGroups = new ObservableCollection<MainModel>();
+         
 
-            MainGroups.Add(new MainModel()
+            MainModel model = new MainModel();
+            model.UserInfo = new LoginUserInfo()
             {
-                UserInfo = new LoginUserInfo()
-                {
-                    UserName = "测试"
-                },
-            });
+                UserName = "测试",
+                UserIcon = "MainBack",
+            };
+
+            for (int i = 0; i < 5; i++)
+            {
+                PageModule page=new PageModule("测试我"+i, "主窗体图标", "");
+                model.Modules.Add(page);
+            }
+            MainGroups.Add(model);
         }
         private ObservableCollection<MainModel> _mainGroups;
 
@@ -35,5 +43,7 @@ namespace YC.ViewModel
                 _mainGroups = value;
                 RaisePropertyChanged(); }
         }
+
+       
     }
 }

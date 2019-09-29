@@ -69,10 +69,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="MainEmbed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="MainEmbed.xaml.cs">
+      <DependentUpon>MainEmbed.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -102,10 +109,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YC.Client.Execute\YC.Client.Execute.csproj">
+      <Project>{f19b0180-92fe-4faf-bdff-348217a4ad7c}</Project>
+      <Name>YC.Client.Execute</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YC.ViewModel\YC.ViewModel.csproj">
       <Project>{55c78556-2bf7-40f1-a82d-280558483d4d}</Project>
       <Name>YC.ViewModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Workbench\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

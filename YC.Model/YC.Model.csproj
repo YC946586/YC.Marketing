@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainModel.cs" />
+    <Compile Include="IndexModel\PageModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoginUserInfo.cs" />
   </ItemGroup>

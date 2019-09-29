@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using YC.Model.IndexModel;
 
 namespace YC.Model
 {
@@ -33,5 +35,20 @@ namespace YC.Model
                 RaisePropertyChanged();
             }
         }
+        private ObservableCollection<PageModule> _modules = new ObservableCollection<PageModule>();
+
+        /// <summary>
+        /// 树节点的数据
+        /// </summary>
+        public ObservableCollection<PageModule> Modules
+        {
+            get { return _modules; }
+            set
+            {
+                _modules = value;
+                RaisePropertyChanged();
+            }
+        }
+
     }
 }
