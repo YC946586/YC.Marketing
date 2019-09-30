@@ -30,7 +30,7 @@ namespace YC.ClientView.Workbench
         }
     }
 
-    public class DictionaryView : BaseView<WorkbenchView, WorkbenchViewModel, WorkbenchModel>, IModel
+    public class WorkbenchViewDog : BaseView<WorkbenchView, WorkbenchViewModel, WorkbenchModel>, IModel
     {
 
     }

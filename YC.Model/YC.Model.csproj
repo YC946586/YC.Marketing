@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainEmbedModel.cs" />
     <Compile Include="MainModel.cs" />
     <Compile Include="IndexModel\PageModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

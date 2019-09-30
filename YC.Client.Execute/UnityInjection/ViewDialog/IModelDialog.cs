@@ -23,7 +23,7 @@ namespace YC.Client.Execute.UnityInjection
         /// <summary>
         /// 关联默认视图
         /// </summary>
-        void BindDefaultModel(int? authValue);
+        void BindDefaultModel(int? authValue=0);
 
         /// <summary>
         /// 获取主窗口
