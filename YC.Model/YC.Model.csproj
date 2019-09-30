@@ -55,6 +55,7 @@
     <Compile Include="IndexModel\PageModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoginUserInfo.cs" />
+    <Compile Include="Workbench\FuntionsModel.cs" />
     <Compile Include="Workbench\TodoModel.cs" />
     <Compile Include="Workbench\WorkbenchModel.cs" />
   </ItemGroup>

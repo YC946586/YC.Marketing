@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:YC.ClientView.Workbench.Advertising"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ItemsControl ItemsSource="{Binding ListGroups}" FocusVisualStyle="{x:Null}"  VerticalAlignment="Top">
+    <ItemsControl ItemsSource="{Binding ListFuntions}" FocusVisualStyle="{x:Null}"  VerticalAlignment="Top">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel />
@@ -14,15 +14,15 @@
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Border  Margin="0 20"  CornerRadius="5" Background="White"  >
-                    <StackPanel   Margin="25 25 25 0">
-                        <TextBlock Text="{Binding Jdmc}" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
-                        <ListView ItemsSource="{Binding  ListTodo}"   BorderThickness="0"  Margin="25 0 0 0">
+                <Border  Margin="0 15 0 0"  CornerRadius="5" Background="White"  Height="180">
+                    <StackPanel   Margin="25 15 25 0">
+                        <TextBlock Text="{Binding FunName}" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
+                        <ListView ItemsSource="{Binding  ListFuntions}"    >
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                                     <!--<Setter Property="Cursor" Value="Hand"/>-->
-                                    <Setter Property="Margin" Value="0 15 0 0"/>
+                                    <Setter Property="Margin" Value="0 5"/>
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                     <Setter Property="Background" Value="White"/>
@@ -30,8 +30,7 @@
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="ListBoxItem" >
-
-                                                <TextBlock Text="{Binding Message}" FontSize="12"></TextBlock>
+                                                <TextBlock Text="{Binding Depict}" FontSize="11"></TextBlock>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="true">
                                                         <Setter Property="Opacity"  Value="0.7"/>

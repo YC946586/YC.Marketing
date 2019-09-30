@@ -20,7 +20,7 @@
                 <TextBlock Text="向日葵 永远只会朝着太阳" Margin="20 0" VerticalAlignment="Center"></TextBlock>
             </StackPanel>
         </Grid>
-        <ContentControl  Grid.Row="1" FocusVisualStyle="{x:Null}" Margin="20" Content="{Binding Path=(commons:RefreshCommon.SelectMenuGroup)}" />
+        <ContentControl  Grid.Row="1" FocusVisualStyle="{x:Null}" Margin="15" Content="{Binding Path=(commons:RefreshCommon.SelectMenuGroup)}" />
 
         <!--<workbench:WorkbenchView Margin="20" Grid.Row="1"/>-->
     </Grid>

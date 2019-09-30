@@ -11,7 +11,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="170"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="70"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="0"   CornerRadius="5" Background="White" >
                 <Image Source="{DynamicResource HeaderMsgImg}" Stretch="Uniform"></Image>
@@ -21,8 +21,14 @@
             <!--<Border Grid.Row="1" Margin="0 20 0 0"  CornerRadius="5" Background="White">
 
             </Border>-->
-            <Border Grid.Row="2" Margin="0 20 0 0"  CornerRadius="5" Background="White">
-
+            <Border Grid.Row="2" Margin="0 15 0 0"  CornerRadius="5" Background="White">
+                <Canvas  Margin="25 0 0 0">
+                    <Path Data="{DynamicResource PadFone}" Fill="Black" Canvas.Top="20"  Stretch="Uniform" Width="40" Height="40"></Path>
+                    <StackPanel   Canvas.Top="20" Canvas.Left="50">
+                        <TextBlock Text="多种终端高效管理"  FontSize="16" Margin="0 0 0 8"/>
+                        <TextBlock Text="手机端、平板端、电话机" FontSize="11" Foreground="#CCCCCC"/>
+                    </StackPanel>
+                </Canvas>
             </Border>
             <!--<Border Grid.Row="3" Margin="0 20 0 0"  CornerRadius="5" Background="White">
 

@@ -5,29 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YC.ClientView.Workbench"
              xmlns:advertising="clr-namespace:YC.ClientView.Workbench.Advertising">
-
-
-
-    <!--<Grid>
-        <ScrollViewer>
-            <ItemsControl  ItemsSource="{Binding GridModelList}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel></StackPanel>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock Text="{Binding A}"></TextBlock>
-                            <TextBlock Text="{Binding B}"></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-    </Grid>-->
-
+    
     <ItemsControl  ItemsSource="{Binding GridModelList}" >
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
@@ -39,19 +17,19 @@
                 <Grid  >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="245"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="290"/>
+                                <RowDefinition Height="300"/>
                                 <RowDefinition Height="220"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
                             <Grid Grid.Row="0">
                                 <Border Width="470"   HorizontalAlignment="Left" CornerRadius="5" Background="White">
-                                    <StackPanel  Margin="25">
+                                    <StackPanel  Margin="15">
                                         <TextBlock Text="收入概况" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
                                         <UniformGrid Columns="2" Margin="24 30">
                                             <StackPanel >
@@ -66,7 +44,7 @@
                                         </UniformGrid>
                                     </StackPanel>
                                 </Border>
-                                <Border HorizontalAlignment="Right" CornerRadius="5" Background="White" Width="400"></Border>
+                                <Border HorizontalAlignment="Right" CornerRadius="5" Background="White" Width="410"></Border>
 
                             </Grid>
 

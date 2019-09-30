@@ -62,6 +62,22 @@ namespace YC.Model.Workbench
             }
         }
 
+
+        private ObservableCollection<FuntionsModel> _listFuntions = new ObservableCollection<FuntionsModel>();
+
+        /// <summary>
+        /// 最新功能 有赞神厨
+        /// </summary>
+        public ObservableCollection<FuntionsModel> ListFuntions
+        {
+            get { return _listFuntions; }
+            set
+            {
+                _listFuntions = value;
+                RaisePropertyChanged();
+            }
+        }
+
     }
 
 
