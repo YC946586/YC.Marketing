@@ -70,6 +70,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceptance.cs" />
+    <Compile Include="Workbench\Advertising\AdvertisingView.xaml.cs">
+      <DependentUpon>AdvertisingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workbench\Advertising\Funtions.xaml.cs">
+      <DependentUpon>Funtions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workbench\Advertising\HeaderMsg.xaml.cs">
+      <DependentUpon>HeaderMsg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workbench\CommonlyFun.xaml.cs">
       <DependentUpon>CommonlyFun.xaml</DependentUpon>
     </Compile>
@@ -94,6 +103,18 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Workbench\Advertising\AdvertisingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workbench\Advertising\Funtions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workbench\Advertising\HeaderMsg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Workbench\CommonlyFun.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -56,6 +56,9 @@
         <PathGeometry Figures=""/>
         <PathGeometry Figures=""/>
     </GeometryGroup>-->
+
+    <!--工作台 消息广告-->
+    <BitmapImage x:Key="HeaderMsgImg" UriSource="pack://application:,,,/YC.Client.UI.Resources;component/Images/Workbench/MHeaderMsg.png"></BitmapImage>
     <Style x:Key="SimpleButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle">
             <Setter.Value>

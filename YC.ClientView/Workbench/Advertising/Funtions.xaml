@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="YC.ClientView.Workbench.Advertising.Funtions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:YC.ClientView.Workbench.Advertising"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ItemsControl ItemsSource="{Binding ListGroups}" FocusVisualStyle="{x:Null}"  VerticalAlignment="Top">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Border  Margin="0 20"  CornerRadius="5" Background="White"  >
+                    <StackPanel   Margin="25 25 25 0">
+                        <TextBlock Text="{Binding Jdmc}" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
+                        <ListView ItemsSource="{Binding  ListTodo}"   BorderThickness="0"  Margin="25 0 0 0">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                    <!--<Setter Property="Cursor" Value="Hand"/>-->
+                                    <Setter Property="Margin" Value="0 15 0 0"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Background" Value="White"/>
+                                    <!-- 设置控件模板 -->
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListBoxItem" >
+
+                                                <TextBlock Text="{Binding Message}" FontSize="12"></TextBlock>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="Opacity"  Value="0.7"/>
+                                                    </Trigger>
+
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+
+                        </ListView>
+                    </StackPanel>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

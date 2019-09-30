@@ -9,7 +9,7 @@
     <Border  Margin="0 20 0 0"  CornerRadius="5" Background="White"  >
         <StackPanel  Margin="25 25 25 0">
             <TextBlock Text="待办事项" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
-            <ListBox ItemsSource="{Binding  ListTodo}"  BorderThickness="0"  Margin="25 0 0 0">
+            <ListBox ItemsSource="{Binding  ListTodo}"   BorderThickness="0"  Margin="25 0 0 0">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid  Columns="4"   >
