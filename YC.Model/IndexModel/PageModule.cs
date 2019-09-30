@@ -16,7 +16,7 @@ namespace YC.Model.IndexModel
             FunName = funName;
             OpenSpace = openSpace;
             Authorities = authorities;
-            _isOpt = isOpt;
+            IsOpt = isOpt;
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace YC.Model.IndexModel
         public PageModule Curmodel { get; }
 
 
-        private int _isOpt =0;
+        private int _isOpt;
         /// <summary>
         /// 是否选中
         /// </summary>

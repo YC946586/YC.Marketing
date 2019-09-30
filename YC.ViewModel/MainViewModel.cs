@@ -61,7 +61,7 @@ namespace YC.ViewModel
             MainModel model = new MainModel();
             model.UserInfo = new LoginUserInfo()
             {
-                UserName = "测试",
+                UserName = "洋葱",
                 UserIcon = "HaderIcon",
             };
             int page = 0;
@@ -71,12 +71,13 @@ namespace YC.ViewModel
                 PageModule pageModel = new PageModule("测试我" + i, "主窗体图标", "YC.ClientView.Workbench.WorkbenchViewDog", page);
                 model.Modules.Add(pageModel);
             }
-            RefreshCommon.IndexName = model.Modules.First().FunName;
+            //初始化模块
+            Open(model.Modules.First());
             MainGroups.Add(model);
             GC.Collect();
         }
 
-
+        
 
         /// <summary>
         /// 打开模块

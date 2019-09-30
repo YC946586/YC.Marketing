@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commons\RefreshCommon.cs" />
+    <Compile Include="Converter\ColorsConverter.cs" />
     <Compile Include="Converter\FlagConverter.cs" />
     <Compile Include="Converter\NameToObjectConverter.cs" />
     <Compile Include="UnityInjection\BootStrapper.cs" />

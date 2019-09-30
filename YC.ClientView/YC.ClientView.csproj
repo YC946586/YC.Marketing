@@ -70,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceptance.cs" />
+    <Compile Include="Workbench\CommonlyFun.xaml.cs">
+      <DependentUpon>CommonlyFun.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workbench\Todo.xaml.cs">
+      <DependentUpon>Todo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workbench\WorkbenchView.xaml.cs">
       <DependentUpon>WorkbenchView.xaml</DependentUpon>
     </Compile>
@@ -88,6 +94,14 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Workbench\CommonlyFun.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workbench\Todo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Workbench\WorkbenchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
