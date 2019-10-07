@@ -69,6 +69,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adhibition\AdhibitionViewModel.cs" />
+    <Compile Include="Asset\AssetViewModel.cs" />
     <Compile Include="MainEmbedViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +87,10 @@
     <ProjectReference Include="..\YC.Model\YC.Model.csproj">
       <Project>{bbaa8359-e681-48dc-8d92-4ae9e92a80cd}</Project>
       <Name>YC.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YC.RequestConver\YC.RequestConver.csproj">
+      <Project>{6db7e1a1-8a0f-49c7-b064-cd626681a06d}</Project>
+      <Name>YC.RequestConver</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

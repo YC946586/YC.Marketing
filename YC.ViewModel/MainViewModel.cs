@@ -12,6 +12,7 @@ using YC.Client.Execute.UnityInjection;
 using YC.Client.Execute.UnityInjection.ViewDialog.CoreLib;
 using YC.Model;
 using YC.Model.IndexModel;
+using YC.RequestConver;
 
 namespace YC.ViewModel
 {
@@ -65,15 +66,25 @@ namespace YC.ViewModel
                 UserIcon = "HaderIcon",
             };
             int page = 0;
-            for (int i = 0; i < 5; i++)
+            Dictionary<string, string> dicMage = new Dictionary<string, string>();
+            dicMage.Add("工作区", "YC.ClientView.Workbench.WorkbenchViewDog");
+            dicMage.Add("资产情况", "YC.ClientView.Asset.AssetViewDog");
+            dicMage.Add("营销应用", "YC.ClientView.Adhibition.AdhibitionViewDog");
+
+            foreach (var item in dicMage)
             {
                 page++;
-                PageModule pageModel = new PageModule("测试我" + i, "主窗体图标", "YC.ClientView.Workbench.WorkbenchViewDog", page);
+                PageModule pageModel = new PageModule(item.Key, "主窗体图标", item.Value, page);
                 model.Modules.Add(pageModel);
+            }
+            for (int i = 0; i < 5; i++)
+            {
+              
             }
             //初始化模块
             Open(model.Modules.First());
             MainGroups.Add(model);
+            //Class1.getYHgl();
             GC.Collect();
         }
 

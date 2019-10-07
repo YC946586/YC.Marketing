@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6DB7E1A1-8A0F-49C7-B064-CD626681A06D}</ProjectGuid>
+    <ProjectGuid>{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YC.RequestConver</RootNamespace>
-    <AssemblyName>YC.RequestConver</AssemblyName>
+    <RootNamespace>YC.Client.Entity</RootNamespace>
+    <AssemblyName>YC.Client.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,18 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\React.Client.Entity\YC.Client.Entity.csproj">
-      <Project>{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}</Project>
-      <Name>YC.Client.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YC.Client.BLL\YC.Client.BLL.csproj">
-      <Project>{7475367a-a2d4-4d39-8cfd-cc2c0144c449}</Project>
-      <Name>YC.Client.BLL</Name>
-    </ProjectReference>
+    <Compile Include="UC_GNGLEntity.cs" />
+    <Compile Include="UC_JSGLEntity.cs" />
+    <Compile Include="UC_JSGNGXGLEntity.cs" />
+    <Compile Include="UC_YHGLEntity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,6 +46,10 @@
     <Reference Include="GalaSoft.MvvmLight.Platform">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignThemes.Wpf">
       <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
@@ -70,6 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceptance.cs" />
+    <Compile Include="Adhibition\AdhibitionView.xaml.cs">
+      <DependentUpon>AdhibitionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Asset\AssetView.xaml.cs">
+      <DependentUpon>AssetView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workbench\Advertising\AdvertisingView.xaml.cs">
       <DependentUpon>AdvertisingView.xaml</DependentUpon>
     </Compile>
@@ -88,6 +98,14 @@
     <Compile Include="Workbench\WorkbenchView.xaml.cs">
       <DependentUpon>WorkbenchView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Adhibition\AdhibitionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Asset\AssetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainEmbed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
