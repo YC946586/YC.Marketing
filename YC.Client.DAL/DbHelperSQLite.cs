@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -7,6 +6,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Maticsoft.DBUtility;
+using MySql.Data.MySqlClient;
 
 namespace YC.Client.DAL
 {
@@ -14,11 +15,11 @@ namespace YC.Client.DAL
     /// 数据访问抽象基础类
     /// Copyright (C) 2004-2008 By LiTianPing 
     /// </summary>
-    public abstract class DbHelperMySQL
+    public abstract class DbHelperSQLite
     {
         //数据库连接字符串(web.config来配置)，可以动态更改connectionString支持多数据库.		
-        public static string connectionString = "Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + @"Data.db;Pooling=true;FailIfMissing=false";
-        public DbHelperMySQL()
+        public static string connectionString = "Database=Orange3.0;Data Source=192.168.12.26;User Id=admin;Password=admin;pooling=false;CharSet=utf8;port=3306;ConvertZeroDateTime = true";
+        public DbHelperSQLite()
         {
         }
 
@@ -511,7 +512,61 @@ namespace YC.Client.DAL
                 }
             }
         }
-
+        /// <summary>
+        /// 执行多条SQL语句，实现数据库事务。
+        /// </summary>
+        /// <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的MySqlParameter[]）</param>
+        public static void ExecuteSqlTranWithIndentity(System.Collections.Generic.List<CommandInfo> SQLStringList)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlTransaction trans = conn.BeginTransaction())
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    try
+                    {
+                        int indentity = 0;
+                        //循环
+                        foreach (CommandInfo myDE in SQLStringList)
+                        {
+                            string cmdText = myDE.CommandText;
+                            MySqlParameter[] cmdParms = null;
+                            if (myDE.Parameters != null)
+                            {
+                                cmdParms = (MySqlParameter[])myDE.Parameters;
+                                foreach (MySqlParameter q in cmdParms)
+                                {
+                                    if (q.Direction == ParameterDirection.InputOutput)
+                                    {
+                                        q.Value = indentity;
+                                    }
+                                }
+                            }
+                            PrepareCommand(cmd, conn, trans, cmdText, cmdParms);
+                            int val = cmd.ExecuteNonQuery();
+                            if (myDE.Parameters != null)
+                            {
+                                foreach (MySqlParameter q in cmdParms)
+                                {
+                                    if (q.Direction == ParameterDirection.Output)
+                                    {
+                                        indentity = Convert.ToInt32(q.Value);
+                                    }
+                                }
+                                cmd.Parameters.Clear();
+                            }
+                        }
+                        trans.Commit();
+                    }
+                    catch
+                    {
+                        trans.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
         /// <summary>
         /// 执行一条计算查询结果语句，返回查询结果（object）。
         /// </summary>
@@ -651,10 +706,5 @@ namespace YC.Client.DAL
                 }
             }
         }
-
-
-
-        
-
     }
 }

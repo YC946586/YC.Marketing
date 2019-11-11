@@ -54,12 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbHelperMySQL.cs" />
+    <Compile Include="DbHelperSQLite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UC_GNGLDAL.cs" />
-    <Compile Include="UC_JSGLDAL.cs" />
-    <Compile Include="UC_JSGNGXGLDAL.cs" />
-    <Compile Include="UC_YHGLDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\React.Client.Entity\YC.Client.Entity.csproj">
