@@ -47,15 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Bridge.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\React.Client.Entity\YC.Client.Entity.csproj">
       <Project>{5f95e31e-18b7-4d6d-aafe-9caf1d522606}</Project>
       <Name>YC.Client.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YC.Client.DAL\YC.Client.DAL.csproj">
+    <ProjectReference Include="..\YC.Client.DAL\YC.Client.Data.csproj">
       <Project>{4ebc2132-f92e-4e05-bc21-3dda8ae07d3a}</Project>
-      <Name>YC.Client.DAL</Name>
+      <Name>YC.Client.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

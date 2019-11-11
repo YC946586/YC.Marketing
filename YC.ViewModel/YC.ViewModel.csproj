@@ -80,6 +80,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\React.Client.Entity\YC.Client.Entity.csproj">
+      <Project>{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}</Project>
+      <Name>YC.Client.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YC.Client.Execute\YC.Client.Execute.csproj">
       <Project>{F19B0180-92FE-4FAF-BDFF-348217A4AD7C}</Project>
       <Name>YC.Client.Execute</Name>

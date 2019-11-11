@@ -7,8 +7,8 @@
     <ProjectGuid>{4EBC2132-F92E-4E05-BC21-3DDA8AE07D3A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YC.Client.DAL</RootNamespace>
-    <AssemblyName>YC.Client.DAL</AssemblyName>
+    <RootNamespace>YC.Client.Data</RootNamespace>
+    <AssemblyName>YC.Client.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -54,8 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbHelperSQLite.cs" />
+    <Compile Include="DbHelperMySQL.cs" />
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="IUsDataDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Gngl\us_gnglDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\React.Client.Entity\YC.Client.Entity.csproj">

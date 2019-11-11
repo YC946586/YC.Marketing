@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29306.81
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YC.Run", "YC.Run\YC.Run.csproj", "{D1620D43-899A-4D33-9142-3ED586C42BE2}"
 EndProject
@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YC.Client.UI.Resources", "Y
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{EFE1A44E-30E2-41FD-BA46-FDD2CC36ED68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YC.Client.DAL", "YC.Client.DAL\YC.Client.DAL.csproj", "{4EBC2132-F92E-4E05-BC21-3DDA8AE07D3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YC.Client.Data", "YC.Client.DAL\YC.Client.Data.csproj", "{4EBC2132-F92E-4E05-BC21-3DDA8AE07D3A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YC.Client.Entity", "React.Client.Entity\YC.Client.Entity.csproj", "{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}"
 EndProject

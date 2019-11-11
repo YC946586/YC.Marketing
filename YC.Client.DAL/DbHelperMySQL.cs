@@ -15,11 +15,11 @@ namespace YC.Client.DAL
     /// 数据访问抽象基础类
     /// Copyright (C) 2004-2008 By LiTianPing 
     /// </summary>
-    public abstract class DbHelperSQLite
+    public abstract class DbHelperMySQL
     {
         //数据库连接字符串(web.config来配置)，可以动态更改connectionString支持多数据库.		
-        public static string connectionString = "Database=Orange3.0;Data Source=192.168.12.26;User Id=admin;Password=admin;pooling=false;CharSet=utf8;port=3306;ConvertZeroDateTime = true";
-        public DbHelperSQLite()
+        public static string connectionString = "Database=test;Data Source=192.168.12.26;User Id=admin;Password=admin;pooling=false;CharSet=utf8;port=3306;ConvertZeroDateTime = true";
+        public DbHelperMySQL()
         {
         }
 

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YC.Client.Entity;
 using YC.Client.Execute.UnityInjection.ViewDialog.CoreLib;
 using YC.Model.IndexModel;
 using YC.Model.Workbench;
@@ -56,8 +57,7 @@ namespace YC.ViewModel.Workbench
             }
 
             //最新功能 有赞神厨
-
-
+           RequestConver.Class1.aas(new us_gnglModel());
             //ListFuntions
            GridModelList.Add(model);
         }
