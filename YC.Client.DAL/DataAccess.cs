@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using YC.Client.DAL;
 
@@ -6,12 +8,13 @@ namespace YC.Client.Data
 {
 
     /// <summary>
-    /// 如果在这里创建对象报错，请检查web.config里是否修改了<add key="DAL" value="Maticsoft.SQLServerDAL" />。
+    /// 
     /// </summary>
-    public sealed partial class DataAccess
+    public static partial class DataAccess
     {
-        private static readonly string AssemblyPath = "YC.Client.Data";
+        //private static readonly string AssemblyPath = "YC.Client.Data";
 
+        private static readonly Dictionary<string, string> DicAttribute = new Dictionary<string, string>();
         #region Createus
         /// <summary>
         /// 桥接数据
@@ -22,8 +25,32 @@ namespace YC.Client.Data
         {
             try
             {
-                //通过反射获取到DAL类
-                var classNamespace = Assembly.Load(AssemblyPath).CreateInstance(AssemblyPath + ".Gngl.Us_gnglDal");
+                string assemblyPath= string.Empty;
+                //如果已经查找到对应的Dal类就不继续找了
+                var fullName = typeof(T).FullName;
+                if (fullName != null && DicAttribute.ContainsKey(fullName))
+                {
+                    assemblyPath = DicAttribute[fullName];
+                }
+                else
+                {
+                    var propertys = Assembly.GetExecutingAssembly().GetTypes();
+                    foreach (var item in propertys)
+                    {
+                        object[] objAttrs = item.GetCustomAttributes(typeof(DataAttribute), true); //获取自定义特性
+                        if (objAttrs.Length == 0)
+                            continue;
+                        DataAttribute curData = objAttrs.First() as DataAttribute;
+                        if (curData != null && curData.Data.Equals(typeof(T).FullName))
+                        {
+                            assemblyPath = item.FullName;
+                             DicAttribute.Add(fullName, item.FullName);
+                        }
+
+                    }
+                } 
+                //通过反射获取到DAL类 因为都是当前路径 就写死路径
+                var classNamespace = Assembly.Load("YC.Client.Data").CreateInstance(assemblyPath);
                 return classNamespace as IUsDataDal<T>;
 
                 //方式2 			
@@ -49,7 +76,7 @@ namespace YC.Client.Data
         {
             try
             {
-                object objType = Assembly.Load(AssemblyPath).CreateInstance(classNamespace);
+                object objType = Assembly.Load("YC.Client.Data").CreateInstance(classNamespace);
                 return objType;
             }
             catch //(System.Exception ex)

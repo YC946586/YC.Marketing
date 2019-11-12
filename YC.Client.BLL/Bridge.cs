@@ -10,16 +10,12 @@ using YC.Client.Entity;
 
 namespace YC.Client.BLL
 {
-    public partial class Bridge<T> where T : class, new()
+    public class Bridge<T> where T : class, new()
     {
         /// <summary>
         /// 获取对应的数据访问层
         /// </summary>
         private readonly IUsDataDal<T> _dal = DataAccess.CreateusData<T>();
-
-        public Bridge()
-        {
-        }
 
         #region  Method
         /// <summary>

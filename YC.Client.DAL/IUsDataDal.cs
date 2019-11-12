@@ -1,7 +1,6 @@
 ﻿using System.Data;
-using YC.Client.Entity;
 
-namespace YC.Client.DAL
+namespace YC.Client.Data
 {
     /// <summary>
     /// 接口层

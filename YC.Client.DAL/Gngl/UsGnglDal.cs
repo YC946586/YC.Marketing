@@ -1,15 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using YC.Client.DAL;
 using YC.Client.Entity;
 
 namespace YC.Client.Data.Gngl
 {
-    //功能管理
-    public class UsGnglDal : IUsDataDal<us_gnglModel>
+    /// <summary>
+    /// 
+    /// </summary>
+    [Data("YC.Client.Entity.UsgnglModel")]
+    public partial class UsGnglDal : IUsDataDal<UsgnglModel>
     {
+
         public bool Exists(string ZJ)
         {
             StringBuilder strSql = new StringBuilder();
@@ -28,7 +36,7 @@ namespace YC.Client.Data.Gngl
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public void Add(us_gnglModel model)
+        public void Add(UsgnglModel model)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into us_gngl(");
@@ -79,7 +87,7 @@ namespace YC.Client.Data.Gngl
         /// <summary>
         /// 更新一条数据
         /// </summary>
-        public bool Update(us_gnglModel model)
+        public bool Update(UsgnglModel model)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update us_gngl set ");
@@ -177,7 +185,7 @@ namespace YC.Client.Data.Gngl
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public us_gnglModel GetModel(string ZJ)
+        public UsgnglModel GetModel(string ZJ)
         {
 
             StringBuilder strSql = new StringBuilder();
@@ -189,7 +197,7 @@ namespace YC.Client.Data.Gngl
             parameters[0].Value = ZJ;
 
 
-            us_gnglModel model = new us_gnglModel();
+            UsgnglModel model = new UsgnglModel();
             DataSet ds = DbHelperMySQL.Query(strSql.ToString(), parameters);
 
             if (ds.Tables[0].Rows.Count > 0)
@@ -279,3 +287,4 @@ namespace YC.Client.Data.Gngl
 
     }
 }
+

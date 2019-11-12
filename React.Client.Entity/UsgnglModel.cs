@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace YC.Client.Entity
 {
     //us_gngl
-    public class us_gnglModel
+    public class UsgnglModel
     {
 
         /// <summary>

@@ -57,7 +57,7 @@ namespace YC.ViewModel.Workbench
             }
 
             //最新功能 有赞神厨
-           RequestConver.Class1.aas(new us_gnglModel());
+           RequestConver.GnglBridge.GetModel(new us_gnglModel());
             //ListFuntions
            GridModelList.Add(model);
         }

@@ -10,10 +10,10 @@ namespace YC.RequestConver
 {
     public class GnglBridge
     {
-        public static void GetModel(us_gnglModel obju)
+        public static void GetModel(UsgnglModel obju)
         {
-            UsGnglBll<us_gnglModel> bll=new UsGnglBll<us_gnglModel>();
-             var cc = bll.GetModel("00127A9653CF4B0B5447933DCKhxx001");
+            Bridge<UsgnglModel> bll=new Bridge<UsgnglModel>();
+            var cc = bll.GetModel("00127A9653CF4B0B5447933DCKhxx001");
         }
     }
 }
