@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using YC.Client.DAL;
 
 namespace YC.Client.Data
 {
@@ -10,14 +9,14 @@ namespace YC.Client.Data
     /// <summary>
     /// 
     /// </summary>
-    public static partial class DataAccess
+    public static class DataAccess
     {
         //private static readonly string AssemblyPath = "YC.Client.Data";
 
         private static readonly Dictionary<string, string> DicAttribute = new Dictionary<string, string>();
         #region Createus
         /// <summary>
-        /// 桥接数据
+        /// 获取对应的数据访问层
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>

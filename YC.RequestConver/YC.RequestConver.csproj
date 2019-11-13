@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GnglBridge.cs" />
+    <Compile Include="Bridge.cs" />
+    <Compile Include="DataRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,9 +50,9 @@
       <Project>{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}</Project>
       <Name>YC.Client.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YC.Client.BLL\YC.Client.BLL.csproj">
-      <Project>{7475367a-a2d4-4d39-8cfd-cc2c0144c449}</Project>
-      <Name>YC.Client.BLL</Name>
+    <ProjectReference Include="..\YC.Client.DAL\YC.Client.Data.csproj">
+      <Project>{4EBC2132-F92E-4E05-BC21-3DDA8AE07D3A}</Project>
+      <Name>YC.Client.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

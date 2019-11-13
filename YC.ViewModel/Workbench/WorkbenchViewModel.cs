@@ -8,6 +8,7 @@ using YC.Client.Entity;
 using YC.Client.Execute.UnityInjection.ViewDialog.CoreLib;
 using YC.Model.IndexModel;
 using YC.Model.Workbench;
+using YC.RequestConver;
 
 namespace YC.ViewModel.Workbench
 {
@@ -57,8 +58,9 @@ namespace YC.ViewModel.Workbench
             }
 
             //最新功能 有赞神厨
-           RequestConver.GnglBridge.GetModel(new us_gnglModel());
-            //ListFuntions
+
+           var ee= DataRequest<UsgnglEntity>.Exists("1");
+
            GridModelList.Add(model);
         }
     }

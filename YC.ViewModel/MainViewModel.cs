@@ -87,8 +87,6 @@ namespace YC.ViewModel
             GC.Collect();
         }
 
-        
-
         /// <summary>
         /// 打开模块
         /// </summary>
@@ -118,7 +116,5 @@ namespace YC.ViewModel
                 GC.Collect();
             }
         }
-
-       
     }
 }

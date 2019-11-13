@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using YC.Client.Data;
-using YC.Client.DAL;
-using YC.Client.Entity;
 
-namespace YC.Client.BLL
+namespace YC.RequestConver
 {
     public  class Bridge<T> where T : class, new()
     {
@@ -32,7 +26,6 @@ namespace YC.Client.BLL
         public void Add(T model)
         {
             _dal.Add(model);
-
         }
 
         /// <summary>

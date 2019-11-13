@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using YC.Client.DAL;
 using YC.Client.Entity;
 
 namespace YC.Client.Data.Gngl
@@ -14,8 +13,8 @@ namespace YC.Client.Data.Gngl
     /// <summary>
     /// 
     /// </summary>
-    [Data("YC.Client.Entity.UsgnglModel")]
-    public partial class UsGnglDal : IUsDataDal<UsgnglModel>
+    [Data("YC.Client.Entity.UsgnglEntity")]
+    public partial class UsGnglDal : IUsDataDal<UsgnglEntity>
     {
 
         public bool Exists(string ZJ)
@@ -28,7 +27,7 @@ namespace YC.Client.Data.Gngl
                     new MySqlParameter("@ZJ", MySqlDbType.VarChar,32)           };
             parameters[0].Value = ZJ;
 
-            return DbHelperMySQL.Exists(strSql.ToString(), parameters);
+            return DbHelperMySql.Exists(strSql.ToString(), parameters);
         }
 
 
@@ -36,7 +35,7 @@ namespace YC.Client.Data.Gngl
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public void Add(UsgnglModel model)
+        public void Add(UsgnglEntity model)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into us_gngl(");
@@ -79,7 +78,7 @@ namespace YC.Client.Data.Gngl
             parameters[12].Value = model.GXSJ;
             parameters[13].Value = model.CJSJ;
             parameters[14].Value = model.VIPTYPE;
-            DbHelperMySQL.ExecuteSql(strSql.ToString(), parameters);
+            DbHelperMySql.ExecuteSql(strSql.ToString(), parameters);
 
         }
 
@@ -87,7 +86,7 @@ namespace YC.Client.Data.Gngl
         /// <summary>
         /// 更新一条数据
         /// </summary>
-        public bool Update(UsgnglModel model)
+        public bool Update(UsgnglEntity model)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update us_gngl set ");
@@ -143,7 +142,7 @@ namespace YC.Client.Data.Gngl
             parameters[12].Value = model.GXSJ;
             parameters[13].Value = model.CJSJ;
             parameters[14].Value = model.VIPTYPE;
-            int rows = DbHelperMySQL.ExecuteSql(strSql.ToString(), parameters);
+            int rows = DbHelperMySql.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
             {
                 return true;
@@ -169,7 +168,7 @@ namespace YC.Client.Data.Gngl
             parameters[0].Value = ZJ;
 
 
-            int rows = DbHelperMySQL.ExecuteSql(strSql.ToString(), parameters);
+            int rows = DbHelperMySql.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
             {
                 return true;
@@ -185,7 +184,7 @@ namespace YC.Client.Data.Gngl
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public UsgnglModel GetModel(string ZJ)
+        public UsgnglEntity GetModel(string ZJ)
         {
 
             StringBuilder strSql = new StringBuilder();
@@ -197,8 +196,8 @@ namespace YC.Client.Data.Gngl
             parameters[0].Value = ZJ;
 
 
-            UsgnglModel model = new UsgnglModel();
-            DataSet ds = DbHelperMySQL.Query(strSql.ToString(), parameters);
+            UsgnglEntity model = new UsgnglEntity();
+            DataSet ds = DbHelperMySql.Query(strSql.ToString(), parameters);
 
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -260,7 +259,7 @@ namespace YC.Client.Data.Gngl
             {
                 strSql.Append(" where " + strWhere);
             }
-            return DbHelperMySQL.Query(strSql.ToString());
+            return DbHelperMySql.Query(strSql.ToString());
         }
 
         /// <summary>
@@ -281,7 +280,7 @@ namespace YC.Client.Data.Gngl
                 strSql.Append(" where " + strWhere);
             }
             strSql.Append(" order by " + filedOrder);
-            return DbHelperMySQL.Query(strSql.ToString());
+            return DbHelperMySql.Query(strSql.ToString());
         }
 
 

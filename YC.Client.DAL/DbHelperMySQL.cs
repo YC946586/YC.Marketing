@@ -2,26 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Maticsoft.DBUtility;
 using MySql.Data.MySqlClient;
 
-namespace YC.Client.DAL
+namespace YC.Client.Data
 {
     /// <summary>
     /// 数据访问抽象基础类
     /// Copyright (C) 2004-2008 By LiTianPing 
     /// </summary>
-    public abstract class DbHelperMySQL
+    public abstract class DbHelperMySql
     {
         //数据库连接字符串(web.config来配置)，可以动态更改connectionString支持多数据库.		
-        public static string connectionString = "Database=test;Data Source=192.168.12.26;User Id=admin;Password=admin;pooling=false;CharSet=utf8;port=3306;ConvertZeroDateTime = true";
-        public DbHelperMySQL()
-        {
-        }
+        private static string connectionString = "Database=test;Data Source=192.168.12.26;User Id=admin;Password=admin;pooling=false;CharSet=utf8;port=3306;ConvertZeroDateTime = true";
+ 
 
         #region 公用方法
         /// <summary>

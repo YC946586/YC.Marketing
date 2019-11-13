@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace YC.Client.Entity
 {
-    //us_gngl
-    public class UsgnglModel
+    //功能管理
+    public class UsgnglEntity
     {
 
         /// <summary>

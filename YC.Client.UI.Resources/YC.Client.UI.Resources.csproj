@@ -72,7 +72,7 @@
     <Resource Include="Images\MainBack.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ICON\logo.ico" />
+    <Resource Include="ICON\logo.ico" />
     <Resource Include="Images\Adhibition\营销应用1.png" />
     <Resource Include="Images\Adhibition\营销应用2.png" />
     <Resource Include="Images\Adhibition\营销应用3.png" />
