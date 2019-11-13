@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginResultData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsgnglEntity.cs" />
+    <Compile Include="Gngl\UcGnglEntity.cs" />
+    <Compile Include="Gngl\UcJsglEntity.cs" />
+    <Compile Include="Gngl\UcJsgnglEntity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

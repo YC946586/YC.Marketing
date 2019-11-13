@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Reflection;
 using YC.Client.Data;
 
 namespace YC.RequestConver
 {
-    public  class Bridge<T> where T : class, new()
+    public class Bridge<T> where T : class, new()
     {
         /// <summary>
         /// 获取对应的数据访问层
@@ -15,11 +18,10 @@ namespace YC.RequestConver
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(string ZJ)
+        public bool Exists(string zj)
         {
-            return _dal.Exists(ZJ);
+            return _dal.Exists(zj);
         }
-
         /// <summary>
         /// 增加一条数据
         /// </summary>
@@ -27,7 +29,6 @@ namespace YC.RequestConver
         {
             _dal.Add(model);
         }
-
         /// <summary>
         /// 更新一条数据
         /// </summary>
@@ -39,132 +40,117 @@ namespace YC.RequestConver
         /// <summary>
         /// 删除一条数据
         /// </summary>
-        public bool Delete(string ZJ)
+        public bool Delete(string zj)
         {
-            return _dal.Delete(ZJ);
+            return _dal.Delete(zj);
         }
 
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public T GetModel(string ZJ)
+        public T GetModel(string zj)
         {
-
-            return _dal.GetModel(ZJ);
+            return _dal.GetModel(zj);
         }
 
-        /// <summary>
-        /// 得到一个对象实体，从缓存中
-        /// </summary>
-        public T GetModelByCache(string ZJ)
-        {
-
-            //string CacheKey = "us_gnglModel-" + ZJ;
-            //object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
-            //if (objModel == null)
-            //{
-            //    try
-            //    {
-            //        objModel = dal.GetModel(ZJ);
-            //        if (objModel != null)
-            //        {
-            //            int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
-            //            Maticsoft.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
-            //        }
-            //    }
-            //    catch { }
-            //}
-
-            //return (us_gnglModel)objModel;
-            return new T();
-        }
-
-        /// <summary>
-        /// 获得数据列表
-        /// </summary>
-        public DataSet GetList(string strWhere)
-        {
-            return _dal.GetList(strWhere);
-        }
         /// <summary>
         /// 获得前几行数据
         /// </summary>
-        public DataSet GetList(int Top, string strWhere, string filedOrder)
+        public List<T> GetList(int top, string strWhere, string filedOrder)
         {
-            return _dal.GetList(Top, strWhere, filedOrder);
+            DataSet ds = _dal.GetList(top, strWhere, filedOrder);
+            return DataTableToList(ds);
         }
+
         /// <summary>
         /// 获得数据列表
         /// </summary>
         public List<T> GetModelList(string strWhere)
         {
             DataSet ds = _dal.GetList(strWhere);
-            return DataTableToList(ds.Tables[0]);
+            return DataTableToList(ds);
         }
+
+        /// <summary>
+        /// 附加方法 实现自己对应的逻辑
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public List<T> Addition(T model)
+        {
+            DataSet ds = _dal.Addition(model);
+            return DataTableToList(ds);
+        }
+        #region Private methods
+
         /// <summary>
         /// 获得数据列表
         /// </summary>
-        public List<T> DataTableToList(DataTable dt)
+        private List<T> DataTableToList(DataSet dt)
         {
-            List<T> modelList = new List<T>();
-            int rowsCount = dt.Rows.Count;
-            if (rowsCount > 0)
-            {
-                //us_gnglModel model;
-                //for (int n = 0; n < rowsCount; n++)
-                //{
-                //    model = new us_gnglModel();
-                //    model.ZJ = dt.Rows[n]["ZJ"].ToString();
-                //    model.JDMC = dt.Rows[n]["JDMC"].ToString();
-                //    model.F_FJDZJ = dt.Rows[n]["F_FJDZJ"].ToString();
-                //    if (dt.Rows[n]["DJ"].ToString() != "")
-                //    {
-                //        model.DJ = decimal.Parse(dt.Rows[n]["DJ"].ToString());
-                //    }
-                //    if (dt.Rows[n]["JDPX"].ToString() != "")
-                //    {
-                //        model.JDPX = decimal.Parse(dt.Rows[n]["JDPX"].ToString());
-                //    }
-                //    if (dt.Rows[n]["GNBZ"].ToString() != "")
-                //    {
-                //        model.GNBZ = decimal.Parse(dt.Rows[n]["GNBZ"].ToString());
-                //    }
-                //    model.JDLX = dt.Rows[n]["JDLX"].ToString();
-                //    model.JDSX = dt.Rows[n]["JDSX"].ToString();
-                //    model.REMARK = dt.Rows[n]["REMARK"].ToString();
-                //    if (dt.Rows[n]["QYBZ"].ToString() != "")
-                //    {
-                //        model.QYBZ = decimal.Parse(dt.Rows[n]["QYBZ"].ToString());
-                //    }
-                //    model.GXR = dt.Rows[n]["GXR"].ToString();
-                //    model.CJR = dt.Rows[n]["CJR"].ToString();
-                //    if (dt.Rows[n]["GXSJ"].ToString() != "")
-                //    {
-                //        model.GXSJ = DateTime.Parse(dt.Rows[n]["GXSJ"].ToString());
-                //    }
-                //    if (dt.Rows[n]["CJSJ"].ToString() != "")
-                //    {
-                //        model.CJSJ = DateTime.Parse(dt.Rows[n]["CJSJ"].ToString());
-                //    }
-                //    if (dt.Rows[n]["VIPTYPE"].ToString() != "")
-                //    {
-                //        model.VIPTYPE = int.Parse(dt.Rows[n]["VIPTYPE"].ToString());
-                //    }
-
-
-                //    modelList.Add(model);
-                //}
-            }
+            var data = DataSetToEntityList<T>(dt);
+            List<T> modelList = data.ToList();
             return modelList;
         }
 
+
         /// <summary>
-        /// 获得数据列表
+        /// DataSet转换为实体列表
         /// </summary>
-        public DataSet GetAllList()
+        /// <typeparam name="T">实体类</typeparam>
+        /// <param name="pDataSet">DataSet</param>
+        /// <param name="pTableIndex">待转换数据表索引</param>
+        /// <returns>实体类列表</returns>
+        private static IList<T> DataSetToEntityList<T>(DataSet pDataSet, int pTableIndex = 0)
         {
-            return GetList("");
+            try
+            {
+                if (pDataSet == null || pDataSet.Tables.Count < 0)
+                    return default(IList<T>);
+                if (pTableIndex > pDataSet.Tables.Count - 1)
+                    return default(IList<T>);
+                if (pTableIndex < 0)
+                    pTableIndex = 0;
+                if (pDataSet.Tables[pTableIndex].Rows.Count <= 0)
+                    return default(IList<T>);
+
+                DataTable p_Data = pDataSet.Tables[pTableIndex];
+                // 返回值初始化
+                IList<T> result = new List<T>();
+                for (int j = 0; j < p_Data.Rows.Count; j++)
+                {
+                    T _t = (T)Activator.CreateInstance(typeof(T));
+                    PropertyInfo[] propertys = _t.GetType().GetProperties();
+                    foreach (PropertyInfo pi in propertys)
+                    {
+                        if (p_Data.Columns.IndexOf(pi.Name.ToUpper()) != -1 && p_Data.Rows[j][pi.Name.ToUpper()] != DBNull.Value)
+                        {
+                            object value = p_Data.Rows[j][pi.Name.ToUpper()];
+                            if (pi.PropertyType.FullName == "System.Int32")//此处判断下Int32类型，如果是则强转
+                                value = Convert.ToInt32(value);
+                            pi.SetValue(_t, value, null);
+                        }
+                        else
+                        {
+                            pi.SetValue(_t, null, null);
+                        }
+                    }
+                    result.Add(_t);
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
         }
+
+
+        #endregion
+
+
         #endregion
 
     }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YC.Client.Entity;
+using YC.Client.Entity.Gngl;
 using YC.Client.Execute.UnityInjection.ViewDialog.CoreLib;
 using YC.Model.IndexModel;
 using YC.Model.Workbench;
@@ -59,9 +60,9 @@ namespace YC.ViewModel.Workbench
 
             //最新功能 有赞神厨
 
-           var ee= DataRequest<UsgnglEntity>.Exists("1");
-
-           GridModelList.Add(model);
+           var ee= DataRequest<UcGnglEntity>.Addition(new UcGnglEntity());
+         
+            GridModelList.Add(model);
         }
     }
 }

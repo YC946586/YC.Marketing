@@ -42,6 +42,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,7 +58,10 @@
     <Compile Include="DataAttribute.cs" />
     <Compile Include="DbHelperMySQL.cs" />
     <Compile Include="DataAccess.cs" />
-    <Compile Include="Gngl\UsGnglDal.cs" />
+    <Compile Include="DbHelperSQLite.cs" />
+    <Compile Include="Gngl\UcGnglDal.cs" />
+    <Compile Include="Gngl\UcJsglDal.cs" />
+    <Compile Include="Gngl\UcJsgnglDal.cs" />
     <Compile Include="IUsDataDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
