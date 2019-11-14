@@ -250,7 +250,7 @@ namespace YC.Client.Data.Gngl
             {
                 jszj = model.ZJ;
             }
-            strSql.Append(" jsgn.ZJ_JSGL ='"+ jszj + "' ");  
+            strSql.Append(" jsgn.ZJ_JSGL ='"+ jszj + "' and gngl.qybz='0' ");  
             return DbHelperSQLite.Query(strSql.ToString());
         }
     }

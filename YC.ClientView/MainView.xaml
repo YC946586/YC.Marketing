@@ -30,7 +30,7 @@
                         <ControlTemplate TargetType="{x:Type RadioButton}">
                             <Border x:Name="border"  CornerRadius="10">
                                 <StackPanel Orientation="Horizontal" Margin="10,0,0,0" >
-                                    <Path  Stretch="Uniform" Name="Path"  Fill="#535155"  Data="{Binding FunIcon,Converter={StaticResource imgConvert}}" Margin="10 0 15 0" Width="20" Height="20"    />
+                                    <Path  Stretch="Uniform" Name="Path"  Fill="#535155"  Data="{Binding FunName,Converter={StaticResource imgConvert}}" Margin="10 0 15 0" Width="18" Height="18"    />
                                     <TextBlock Name="TextBlock"  Text="{Binding FunName}" FontSize="12" Width="72"  Foreground="#535155" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Border>
@@ -89,7 +89,7 @@
                                     <DataTemplate>
                                         <RadioButton   GroupName="FunName" Command="{Binding DataContext.OpenCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"  
                                                      CommandParameter="{Binding}"
-                                                      IsChecked="{Binding IsOpt,Converter={StaticResource flag}}" Style="{StaticResource ButtonStylePopup}" />
+                                                      IsChecked="{Binding IsCheck,Converter={StaticResource flag}}" Style="{StaticResource ButtonStylePopup}" />
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>

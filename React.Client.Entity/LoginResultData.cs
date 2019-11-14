@@ -7,11 +7,13 @@ using YC.Client.Entity.Gngl;
 
 namespace YC.Client.Entity
 {
-    public class LoginResultData
+    public static class LoginResultData
     {
         /// <summary>
         /// 功能列表
         /// </summary>
         public static List<UcGnglEntity> TheMainConfig { get; set; }
+
+        
     }
 }

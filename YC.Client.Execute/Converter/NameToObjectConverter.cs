@@ -15,7 +15,7 @@ namespace YC.Client.Execute.Converter
     /// 根据Name转化为资源文件
     /// 并缓存到当前域中
     /// </summary>
-    public class NameToObjectConverter: IValueConverter
+    public class NameToObjectConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -32,8 +32,9 @@ namespace YC.Client.Execute.Converter
                         return null;
                     }
                     string imgName = value as string;
-                    var Resoures = Application.Current.FindResource(imgName);
-                    return Resoures;
+                    var resoures = Application.Current.FindResource(imgName);
+                    return resoures;
+
                 }
             }
             catch (Exception ex)

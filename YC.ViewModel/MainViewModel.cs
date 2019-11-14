@@ -5,8 +5,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using YC.Client.Entity;
 using YC.Client.Execute.Commons;
 using YC.Client.Execute.UnityInjection;
 using YC.Client.Execute.UnityInjection.ViewDialog.CoreLib;
@@ -58,28 +60,24 @@ namespace YC.ViewModel
         public void InitDefaultView()
         {
             MainGroups = new ObservableCollection<MainModel>();
-            MainModel model = new MainModel();
-            model.UserInfo = new LoginUserInfo()
+            MainModel model = new MainModel
             {
-                UserName = "洋葱",
-                UserIcon = "HaderIcon",
+                UserInfo = new LoginUserInfo()
+                {
+                    UserName = "洋葱",
+                    UserIcon = "HaderIcon",
+                }
             };
-            int page = 0;
-            Dictionary<string, string> dicMage = new Dictionary<string, string>();
-            dicMage.Add("工作区", "YC.ClientView.Workbench.WorkbenchViewDog");
-            dicMage.Add("资产情况", "YC.ClientView.Asset.AssetViewDog");
-            dicMage.Add("营销应用", "YC.ClientView.Adhibition.AdhibitionViewDog");
+            var tabFun = LoginResultData.TheMainConfig.Where(s => s.GNLX == 1).OrderBy(s => s.JDPX).ToList();
+            if (tabFun.Any())
+            {
+                tabFun.ForEach((ary) =>
+                {
+                    PageModule pageModel = new PageModule(ary.JDMC, ary.JDSX, ary.JDPX);
+                    model.Modules.Add(pageModel);
+                });
+            }
 
-            foreach (var item in dicMage)
-            {
-                page++;
-                PageModule pageModel = new PageModule(item.Key, "主窗体图标", item.Value, page);
-                model.Modules.Add(pageModel);
-            }
-            for (int i = 0; i < 5; i++)
-            {
-              
-            }
             //初始化模块
             Open(model.Modules.First());
             MainGroups.Add(model);
@@ -97,13 +95,16 @@ namespace YC.ViewModel
             {
                 //给静态属性赋值
                 RefreshCommon.IndexName = model.FunName;
-                var polymorphismAssbly = Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "\\YC.ClientView.dll");
-                var log = polymorphismAssbly.CreateInstance(model.OpenSpace) is IModel;
-                if (log)
+                if (!string.IsNullOrEmpty(model.OpenSpace))
                 {
-                    var dialog = polymorphismAssbly.CreateInstance(model.OpenSpace) as IModel;
-                    dialog?.BindDefaultModel();
-                    if (dialog != null) RefreshCommon.SelectMenuGroup = dialog.GetView();
+                    var polymorphismAssbly = Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "\\YC.ClientView.dll");
+                    var log = polymorphismAssbly.CreateInstance(model.OpenSpace) is IModel;
+                    if (log)
+                    {
+                        var dialog = polymorphismAssbly.CreateInstance(model.OpenSpace) as IModel;
+                        dialog?.BindDefaultModel();
+                        if (dialog != null) RefreshCommon.SelectMenuGroup = dialog.GetView();
+                    }
                 }
             }
             catch (Exception ex)

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using YC.Client.Entity;
 using YC.Client.Entity.Gngl;
+using YC.Client.Execute.Commons;
 using YC.Client.Execute.UnityInjection.ViewDialog.CoreLib;
 using YC.Model.IndexModel;
 using YC.Model.Workbench;
@@ -13,56 +14,93 @@ using YC.RequestConver;
 
 namespace YC.ViewModel.Workbench
 {
-    public class WorkbenchViewModel: BaseOperation<WorkbenchModel>
+    public class WorkbenchViewModel : BaseOperation<WorkbenchModel>
     {
+
+        /// <summary>
+        /// 待办事项
+        /// </summary>
+        private readonly Dictionary<string, string> _dicTodo = new Dictionary<string, string>
+        {
+            {"待服务", "预约单"},
+            {"待付款", "服务订单"},
+            {"待发货", "产品订单"},
+            {"待审核", "推广员申请"}
+        };
+
+        /// <summary>
+        /// 初始化工作台
+        /// </summary>
         public override void InitViewModel()
         {
-            base.InitViewModel();
-            WorkbenchModel model = new WorkbenchModel()
+            try
             {
-                A = "sadasd",
-                B = "sdasd2w222asdas"
-            };
+                base.InitViewModel();
+                WorkbenchModel model = new WorkbenchModel()
+                {
+                    A = "sadasd",
+                    B = "sdasd2w222asdas"
+                };
+                //工作台数据
+                var gztModel = Common.GetGnglEntityByFjd("0124c130f5e64e4b9c04eda4e31b0002");
 
-            for (int i = 0; i < 8; i++)
-            {
-                //var rd=new Random().Next(1,8);           
-                PageModule pageModel = new PageModule("快捷开单", "快捷开单", "YC.ClientView.Workbench.WorkbenchViewDog", i+1);
-                model.ListFun.Add(pageModel);
-            }
-            for (int i = 0; i < 4; i++)
-            {
-                TodoModel model1=new TodoModel()
+                //常用功能
+                var cygnModel = Common.GetGnglEntityByFjd(gztModel.Find(s=>s.JDPX==2).ZJ);
+                if (cygnModel.Any())
                 {
-                    Items="待服务",
-                    TodeCount = 10,
-                    Todedepict = "预约单"
-                };
-                model.ListTodo.Add(model1);
-            }
-            for (int i = 0; i < 2; i++)
-            {
-                FuntionsModel fun=new FuntionsModel()
-                {
-                    FunName = "最新功能"+i,          
-                };
-                for (int j = 0; j < 5; j++)
-                {
-                    depictModel dapi = new depictModel()
+                    cygnModel.ForEach((ary) =>
                     {
-                        Depict=DateTime.Now.ToString("yyyy-M-d dddd")+j+"功能上新了",
-                    };
-
-                    fun.ListFuntions.Add(dapi);
+                        PageModule pageModel = new PageModule(ary.JDMC, ary.JDSX, ary.JDPX);
+                        model.ListFun.Add(pageModel);
+                    });
                 }
-                model.ListFuntions.Add(fun);
+
+                #region 最新宣传 最新功能 有赞神厨   
+
+                var broadcastModel = gztModel.Where(s => s.JDPX == 4).ToList();
+                if (broadcastModel.Any())
+                {
+                    broadcastModel.ForEach((ary) =>
+                    {
+                        FuntionsModel broadc = new FuntionsModel()
+                        {
+                            FunName = ary.JDMC,
+                        };
+                        var dapiModel = Common.GetGnglEntityByFjd(ary.ZJ);
+
+                        dapiModel.ForEach((aty) =>
+                        {
+                            depictModel dapi = new depictModel()
+                            {
+                                Depict = aty.JDSX,
+                            };
+                            broadc.ListFuntions.Add(dapi);
+                        });
+                        model.Listbroadcast.Add(broadc);
+                    });
+                }
+                #endregion
+
+                //待办事项
+                foreach (KeyValuePair<string, string> t in _dicTodo)
+                {
+                    TodoModel model1 = new TodoModel()
+                    {
+                        Items = t.Key,
+                        TodeCount = new Random().Next(10, 200),
+                        Todedepict = t.Value
+                    };
+                    model.ListTodo.Add(model1);
+                }
+
+                GridModelList.Add(model);
             }
-
-            //最新功能 有赞神厨
-
-           var ee= DataRequest<UcGnglEntity>.Addition(new UcGnglEntity());
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
          
-            GridModelList.Add(model);
         }
     }
 }

@@ -32,13 +32,11 @@
                             <Setter.Value>
                                 <ControlTemplate TargetType="ListBoxItem" >
                                     <StackPanel Orientation="Horizontal"  Width="110" Height="45" Background="White" >
-                                        <Border Background="{Binding IsOpt,Converter={StaticResource ConvColor},Mode=TwoWay}"   Width="45" Height="45" CornerRadius="25">
+                                        <Border Background="{Binding IsCheck,Converter={StaticResource ConvColor},Mode=TwoWay}"   Width="45" Height="45" CornerRadius="25">
                                             <Path Fill="White"  Stroke="White" Data="{Binding FunName,Converter={StaticResource imgConvert}}" Stretch="Uniform" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
-                                                </Border>
-                                            <TextBlock Margin="15 0 0 0" Text="{Binding FunName}" VerticalAlignment="Center"> </TextBlock>
-                                        </StackPanel>
-                                  
-
+                                        </Border>
+                                        <TextBlock Margin="15 0 0 0" Text="{Binding FunName}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="true">
                                             <Setter Property="Opacity"  Value="0.7"/>

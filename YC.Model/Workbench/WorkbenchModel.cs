@@ -63,17 +63,17 @@ namespace YC.Model.Workbench
         }
 
 
-        private ObservableCollection<FuntionsModel> _listFuntions = new ObservableCollection<FuntionsModel>();
+        private ObservableCollection<FuntionsModel> _listbroadcast = new ObservableCollection<FuntionsModel>();
 
         /// <summary>
         /// 最新功能 有赞神厨
         /// </summary>
-        public ObservableCollection<FuntionsModel> ListFuntions
+        public ObservableCollection<FuntionsModel> Listbroadcast
         {
-            get { return _listFuntions; }
+            get { return _listbroadcast; }
             set
             {
-                _listFuntions = value;
+                _listbroadcast = value;
                 RaisePropertyChanged();
             }
         }

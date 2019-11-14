@@ -17,7 +17,7 @@ namespace YC.Client.Execute.Converter
         {
             if (value != null && int.TryParse(value.ToString(), out int result))
             {
-                if (result.Equals(1))
+                if (result.Equals(0))
                     return  true;
                 else
                     return  false;
@@ -30,9 +30,9 @@ namespace YC.Client.Execute.Converter
             var data = (bool)value;
             if (data)
             {
-                return 1;
+                return 0;
             }
-            return 0;
+            return 1;
         }
     }
 }

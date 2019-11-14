@@ -10,13 +10,13 @@ namespace YC.Model.IndexModel
    public  class PageModule: ViewModelBase
     {
 
-        public PageModule(  string funName, string funIcon, string openSpace, int isOpt, int? authorities=0)
+        public PageModule(  string funName,  string openSpace, int isCheck, int? authorities=0)
         {         
-            FunIcon = funIcon;
             FunName = funName;
+            //FunIcon = funIcon;
             OpenSpace = openSpace;
             Authorities = authorities;
-            IsOpt = isOpt;
+            IsCheck = isCheck;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace YC.Model.IndexModel
         /// <summary>
         /// 权限值
         /// </summary>
-        public int? Authorities { get; }
+        private int? Authorities { get; }
 
         /// <summary>
         /// 当前功能
@@ -44,14 +44,14 @@ namespace YC.Model.IndexModel
         public PageModule Curmodel { get; }
 
 
-        private int _isOpt;
+        private int _isCheck;
         /// <summary>
         /// 是否选中
         /// </summary>
-        public int IsOpt
+        public int IsCheck
         {
-            get { return _isOpt; }
-            set { _isOpt = value; RaisePropertyChanged(); }
+            get { return _isCheck; }
+            set { _isCheck = value; RaisePropertyChanged(); }
         }
 
     }

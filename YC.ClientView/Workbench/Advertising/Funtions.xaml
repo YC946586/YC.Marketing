@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:YC.ClientView.Workbench.Advertising"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ItemsControl ItemsSource="{Binding ListFuntions}" FocusVisualStyle="{x:Null}"  VerticalAlignment="Top">
+    <ItemsControl ItemsSource="{Binding Listbroadcast}" FocusVisualStyle="{x:Null}"  VerticalAlignment="Top">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel />
@@ -30,7 +30,7 @@
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="ListBoxItem" >
-                                                <TextBlock Text="{Binding Depict}" FontSize="11"></TextBlock>
+                                                <TextBlock Text="{Binding Depict}" Width="170"  TextTrimming="CharacterEllipsis" FontSize="11"></TextBlock>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="true">
                                                         <Setter Property="Opacity"  Value="0.7"/>

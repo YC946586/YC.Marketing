@@ -32,8 +32,8 @@
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Text="{Binding Items}"/>
                                         <TextBlock Margin="0 10 0 0">
-                                           <Run Text="{Binding TodeCount,StringFormat={}{0}个 }" FontSize="16" FontFamily="华文仿宋" FontWeight="Black"/>
-                                           <Run Text="{Binding Todedepict}"/>
+                                           <Run Text="{Binding TodeCount}" FontSize="16" FontFamily="华文仿宋" FontWeight="Black"/>
+                                           <Run Text="{Binding Todedepict,StringFormat={}个{0}}"/>
                                         </TextBlock>
 
                                     </StackPanel>

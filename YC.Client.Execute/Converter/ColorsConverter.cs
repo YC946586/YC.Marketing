@@ -19,21 +19,25 @@ namespace YC.Client.Execute.Converter
             {
                 switch (int.Parse(value.ToString()))
                 {
-                    case 1:
+                    case 0:
                         {
                             return "#56A2FB";
                         }
-                    case 2:
+                    case 1:
                         {
                             return "#2AB9A5";
                         }
-                    case 3:
+                    case 2:
                         {
                             return "#FF8066";
                         }
-                    case 4:
+                    case 3:
                         {
                             return "#FFBA0A";
+                        }
+                    case 4:
+                        {
+                            return "#FE4A77";
                         }
                     case 5:
                         {
@@ -41,12 +45,9 @@ namespace YC.Client.Execute.Converter
                         }
                     case 6:
                         {
-                            return "#FE4A77";
-                        }
-                    case 7:
-                        {
                             return "#2EE555";
                         }
+                 
                     //case 8:
                     //    {
                     //        break;
