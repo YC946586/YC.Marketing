@@ -5,38 +5,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using LiveCharts;
 using YC.Model.IndexModel;
 
 namespace YC.Model.Workbench
 {
     public class WorkbenchModel : ViewModelBase
     {
+        #region 统计图
+        /// <summary>
+        /// 折线图
+        /// </summary>
+        public SeriesCollection SeriesCollection { get; set; }
 
-        private string a;
-        private string b;
+
+        public string[] CharName { get; set; }
+
+        public Func<double, string> Formatter { get; set; }
+        #endregion
+
+
+        private ObservableCollection<KhDataModel> _listKhData = new ObservableCollection<KhDataModel>();
 
         /// <summary>
-        /// 标题
+        /// 客户数据
         /// </summary>
-        public string A
+        public ObservableCollection<KhDataModel> ListKhData
         {
-            get { return a; }
-            set { a = value; }
-        }
-
-        /// <summary>
-        /// 窗口内容
-        /// </summary>
-        public string B
-        {
-            get { return b; }
-            set { b = value; }
+            get { return _listKhData; }
+            set
+            {
+                _listKhData = value;
+                RaisePropertyChanged();
+            }
         }
 
         private ObservableCollection<PageModule> _listFun = new ObservableCollection<PageModule>();
 
         /// <summary>
-        /// 树节点的数据
+        /// 常用功能
         /// </summary>
         public ObservableCollection<PageModule> ListFun
         {

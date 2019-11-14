@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YC.ClientView.Workbench"
-             xmlns:advertising="clr-namespace:YC.ClientView.Workbench.Advertising">
-    
+             xmlns:advertising="clr-namespace:YC.ClientView.Workbench.Advertising"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
+
     <ItemsControl  ItemsSource="{Binding GridModelList}" >
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
@@ -33,18 +34,83 @@
                                         <TextBlock Text="收入概况" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
                                         <UniformGrid Columns="2" Margin="24 30">
                                             <StackPanel >
-                                                <TextBlock Text="实际收款金额" FontSize="14"></TextBlock>
-                                           
-                                                <TextBlock  Margin="0 5 0 10" Text="{Binding A,StringFormat=滴滴滴{0}}" FontSize="14"  FontFamily="宋体" FontWeight="Black"></TextBlock>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="实际收款金额" FontSize="14"/>
+                                                    <Path Data="M511.997952 268.025732 146.975708 755.974268l730.048584 0L511.997952 268.025732" Margin="5 0" Stretch="Uniform" Width="8" Height="8" Fill="#E54646" Stroke="#E54646"></Path>
+                                                    <TextBlock Text="26%"  VerticalAlignment="Center" Foreground="#E54646" FontSize="10"/>
+                                                </StackPanel>
+                                                <TextBlock  Margin="0 5 0 10" Text="3,235,785.00" FontSize="14"  FontFamily="宋体" FontWeight="Black"></TextBlock>
                                             </StackPanel>
                                             <StackPanel >
-                                                <TextBlock Text="会员消耗金额" FontSize="14"></TextBlock>
-                                                <TextBlock  Margin="0 5 0 10" Text="{Binding B}" FontSize="14"  FontFamily="宋体" FontWeight="Black"></TextBlock>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="会员消耗金额" FontSize="14"/>
+                                                    <Path Data="M511.999488 819.413462 72.8374 204.586538 951.1626 204.586538Z" Stretch="Uniform"  Margin="5 0" Width="8" Height="8" Fill="#2DC972" Stroke="#2DC972"></Path>
+                                                    <TextBlock Text="26%" Foreground="#2DC972" FontSize="10" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                                <TextBlock  Margin="0 5 0 10" Text="2,234,56.00" FontSize="14"  FontFamily="宋体" FontWeight="Black"></TextBlock>
                                             </StackPanel>
                                         </UniformGrid>
+
+                                        <!--折线图-->
+                                        <!--<wpf:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Bottom"  Height="160">
+                                            <wpf:CartesianChart.AxisX>
+                                                <wpf:Axis Title="fielname" Labels="{Binding Labels}" FontSize="14"></wpf:Axis>
+                                            </wpf:CartesianChart.AxisX>
+                                            <wpf:CartesianChart.AxisY>
+                                                <wpf:Axis  LabelFormatter="{Binding FormatterT}" Foreground="#D9DCE1" FontSize="14" />
+                                                <wpf:Axis  LabelFormatter="{Binding FormatterS}" Foreground="#FE4A77" Position="RightTop" FontSize="14" />
+                                            </wpf:CartesianChart.AxisY>
+                                        </wpf:CartesianChart>-->
+                                        <lvc:CartesianChart Series="{Binding SeriesCollection}" BorderThickness="0"  Height="160" LegendLocation="Bottom">
+                                            <lvc:CartesianChart.AxisX>
+                                                <lvc:Axis Title="Salesman" Labels="{Binding CharName}"></lvc:Axis>
+                                            </lvc:CartesianChart.AxisX>
+                                            <!--<lvc:CartesianChart.AxisY>
+                                                <lvc:Axis Title="Sold Apps" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                                            </lvc:CartesianChart.AxisY>-->     
+                                        </lvc:CartesianChart>
                                     </StackPanel>
                                 </Border>
-                                <Border HorizontalAlignment="Right" CornerRadius="5" Background="White" Width="410"></Border>
+                                <Border HorizontalAlignment="Right" CornerRadius="5" Background="White" Width="410">
+                                    <StackPanel  Margin="15">
+                                        <TextBlock Text="客户数据" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
+                                        <ListBox ItemsSource="{Binding  ListKhData}"  BorderThickness="0"  Margin="25 0 0 0">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <UniformGrid  Columns="2" Margin="24 20"  Rows="2"  >
+                                                    </UniformGrid>
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.ItemContainerStyle>
+                                                <Style TargetType="ListBoxItem">
+                                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                                    <Setter Property="Cursor" Value="Hand"/>
+                                                    <Setter Property="Margin" Value="0 15"/>
+                                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                    <Setter Property="Background" Value="White"/>
+                                                    <!-- 设置控件模板 -->
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ListBoxItem" >
+                                                                <StackPanel Orientation="Vertical">
+                                                                    <TextBlock Text="{Binding Title}" FontSize="14"/>
+                                                                    <StackPanel Orientation="Horizontal" Margin="0 10">
+                                                                        <TextBlock Text="{Binding TodeCount}" FontSize="14"/>
+                                                                        <Path Data="M511.997952 268.025732 146.975708 755.974268l730.048584 0L511.997952 268.025732" Margin="5 0" Stretch="Uniform" Width="8" Height="8" Fill="#E54646" Stroke="#E54646"></Path>
+                                                                        <TextBlock Text="26%"  VerticalAlignment="Center" Foreground="#E54646" FontSize="10"/>
+                                                                    </StackPanel>
+                                                                    <TextBlock Text="{Binding YestAmount,StringFormat={}昨天:{0}}" FontSize="10" Foreground="#CCCCCC"/>
+                                                                </StackPanel>
+
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ListBox.ItemContainerStyle>
+
+                                        </ListBox>
+                                    </StackPanel>
+                                </Border>
 
                             </Grid>
 
@@ -55,7 +121,7 @@
 
 
                     <advertising:AdvertisingView Grid.Column="1"/>
-                 
+
                 </Grid>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
