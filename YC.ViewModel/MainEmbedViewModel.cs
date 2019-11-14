@@ -10,6 +10,10 @@ namespace YC.ViewModel
 {
     public class MainEmbedViewModel: BaseOperation<MainEmbedModel>
     {
+        public MainEmbedViewModel()
+        {
+            
+        }
         public override void InitViewModel()
         {
             base.InitViewModel();

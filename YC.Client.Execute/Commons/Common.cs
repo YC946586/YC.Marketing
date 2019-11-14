@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using YC.Client.Entity;
 using YC.Client.Entity.Gngl;
 
@@ -31,6 +33,31 @@ namespace YC.Client.Execute.Commons
             var liveFun =
                 LoginResultData.TheMainConfig.Where(s => !string.IsNullOrEmpty(s.F_FJDZJ) && s.F_FJDZJ.Equals(funFid)).ToList();  
             return liveFun;
+        }
+
+        /// <summary>
+        /// 反射UserControl
+        /// </summary>
+        /// <returns></returns>
+        public static UserControl GetUserControl(string userctolAction)
+        {
+            try
+            {
+                UserControl uc = null;
+                //控件所在DLL
+                var actionFile = "YC.ClientView.dll";
+
+                uc =
+                       (UserControl)
+                       Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + actionFile).CreateInstance(userctolAction);
+
+                return uc;
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw;
+            }
         }
     }
 }

@@ -80,6 +80,9 @@
     <Compile Include="Asset\AssetView.xaml.cs">
       <DependentUpon>AssetView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DefaultViewPage.xaml.cs">
+      <DependentUpon>DefaultViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workbench\Advertising\AdvertisingView.xaml.cs">
       <DependentUpon>AdvertisingView.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Asset\AssetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DefaultViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -95,17 +95,22 @@ namespace YC.ViewModel
             {
                 //给静态属性赋值
                 RefreshCommon.IndexName = model.FunName;
-                if (!string.IsNullOrEmpty(model.OpenSpace))
+                var polymorphismAssbly =
+                    Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "\\YC.ClientView.dll");
+                if (string.IsNullOrEmpty(model.OpenSpace))
                 {
-                    var polymorphismAssbly = Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "\\YC.ClientView.dll");
-                    var log = polymorphismAssbly.CreateInstance(model.OpenSpace) is IModel;
-                    if (log)
-                    {
-                        var dialog = polymorphismAssbly.CreateInstance(model.OpenSpace) as IModel;
-                        dialog?.BindDefaultModel();
-                        if (dialog != null) RefreshCommon.SelectMenuGroup = dialog.GetView();
-                    }
+                    RefreshCommon.SelectMenuGroup = Common.GetUserControl("YC.ClientView.DefaultViewPage");
+                    return;
                 }
+            
+                var log = polymorphismAssbly.CreateInstance(model.OpenSpace) is IModel;
+                if (log)
+                {
+                    var dialog = polymorphismAssbly.CreateInstance(model.OpenSpace) as IModel;
+                    dialog?.BindDefaultModel();
+                    if (dialog != null) RefreshCommon.SelectMenuGroup = dialog.GetView();
+                }
+
             }
             catch (Exception ex)
             {

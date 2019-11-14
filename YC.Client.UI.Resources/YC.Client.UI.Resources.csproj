@@ -72,11 +72,14 @@
     <Resource Include="Images\MainBack.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ICON\logo.ico" />
     <Resource Include="Images\Adhibition\营销应用1.png" />
     <Resource Include="Images\Adhibition\营销应用2.png" />
     <Resource Include="Images\Adhibition\营销应用3.png" />
     <Resource Include="Images\Workbench\HeaderMsg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ICON\logo.ico" />
+    <Resource Include="Images\正在开发.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

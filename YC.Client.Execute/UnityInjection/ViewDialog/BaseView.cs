@@ -55,5 +55,5 @@ namespace YC.Client.Execute.UnityInjection.ViewDialog
             if (TView == null) TView = new View();
             return TView as UserControl;
         }
-    }
+    } 
 }

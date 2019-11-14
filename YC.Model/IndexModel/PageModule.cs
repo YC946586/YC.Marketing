@@ -31,7 +31,7 @@ namespace YC.Model.IndexModel
         /// <summary>
         /// 功能打开路径
         /// </summary>
-        public string OpenSpace { get; }
+        public string OpenSpace { get; set; }
 
         /// <summary>
         /// 权限值
