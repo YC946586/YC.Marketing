@@ -468,9 +468,9 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type local:ButtonEx}">
-                            <StackPanel Orientation="Horizontal"  Width="230" Height="60" Background="White" Opacity="10"  >
+                            <StackPanel Orientation="Horizontal"  Width="240" Height="60" Background="White" Opacity="10"  >
                                 <Border Background="{TemplateBinding Background}"   Width="45" Height="45" CornerRadius="25">
-                                    <Path Fill="White"  Stroke="White" Data="{TemplateBinding Tag}"  Stretch="Uniform" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
+                                    <Path Fill="White"   Data="{TemplateBinding Tag}"  Stretch="Uniform" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
                                 </Border>
                                 <StackPanel Orientation="Vertical"  Margin="15 0 0 0" VerticalAlignment="Center">
                                     <TextBlock Text="{TemplateBinding Content}" Margin="0 8" FontWeight="Black" FontFamily="Calibri" />

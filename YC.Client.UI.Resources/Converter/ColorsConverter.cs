@@ -22,18 +22,18 @@ namespace YC.Client.UI.Resources.Converter
                     case 1:
                         {
                             return "#2AB9A5";
-                        }
+                        }                
                     case 2:
-                        {
-                            return "#FF8066";
-                        }
-                    case 3:
                         {
                             return "#FFBA0A";
                         }
+                    case 3:
+                        {
+                            return "#14BF91";
+                        }
                     case 4:
                         {
-                            return "#FE4A77";
+                            return "#FA8573";
                         }
                     case 5:
                         {
