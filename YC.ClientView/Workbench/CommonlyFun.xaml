@@ -12,7 +12,7 @@
     </UserControl.Resources>
     <Border  Margin="0 15 0 0"  CornerRadius="5" Background="White">
         <StackPanel  Margin="25 25 25 0">
-            <TextBlock Text="常用功能" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
+            <TextBlock Text="常用功能" FontSize="16" FontFamily="Calibri" FontWeight="Black" />
             <ListBox ItemsSource="{Binding  ListFun}"  BorderThickness="0"  Margin="25 0 0 0">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>

@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid  Background="White" >
-            <TextBlock Text="{Binding Path=(commons:RefreshCommon.IndexName),Mode=TwoWay}" FontSize="16" FontFamily="华文仿宋"  FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0"/>
+            <TextBlock Text="{Binding Path=(commons:RefreshCommon.IndexName),Mode=TwoWay}" FontSize="16" FontFamily="Calibri"  FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <Border Width="40" Height="40" CornerRadius="5"   Background="{DynamicResource MainBack}"/>
                 <TextBlock Text="向日葵 永远只会朝着太阳" Margin="20 0" VerticalAlignment="Center"></TextBlock>

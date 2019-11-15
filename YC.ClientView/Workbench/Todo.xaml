@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Border  Margin="0 15 0 0"  CornerRadius="5" Background="White"  >
         <StackPanel  Margin="25 25 25 0">
-            <TextBlock Text="待办事项" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
+            <TextBlock Text="待办事项" FontSize="16" FontFamily="Calibri" FontWeight="Black" />
             <ListBox ItemsSource="{Binding  ListTodo}"   BorderThickness="0"  Margin="25 0 0 0">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -32,8 +32,8 @@
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock Text="{Binding Items}"/>
                                         <TextBlock Margin="0 10 0 0">
-                                           <Run Text="{Binding TodeCount}" FontSize="16" FontFamily="华文仿宋" FontWeight="Black"/>
-                                           <Run Text="{Binding Todedepict,StringFormat={}个{0}}"/>
+                                           <Run Text="{Binding TodeCount}" FontSize="16" FontFamily="Calibri" FontWeight="Black"/>
+                                           <Run Text="{Binding Todedepict,StringFormat={}个{0}}" FontFamily="Calibri"/>
                                         </TextBlock>
 
                                     </StackPanel>

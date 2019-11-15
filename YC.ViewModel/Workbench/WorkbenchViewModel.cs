@@ -161,23 +161,29 @@ namespace YC.ViewModel.Workbench
                     new ColumnSeries
                     {
                         Title = "Has sold",
-                        Values = new ChartValues<double> {50,35,30},
-                        Foreground=new SolidColorBrush(Color.FromRgb(217,220,225)),
+                        Values = new ChartValues<double> {50, 35, 30},
+                        Stroke = new SolidColorBrush(Color.FromRgb(217, 220, 225)),
+                        Fill = new SolidColorBrush(Color.FromRgb(217, 220, 225)),
+                         MaxColumnWidth = 10,
+                        StrokeDashArray =new DoubleCollection(2)
+                    },
 
-                    }
                 };
 
                 model.SeriesCollection.Add(new ColumnSeries
                 {
                     Title = "Not sold",
-                    Values = new ChartValues<double> { 70, 30, 42 },
-                    Foreground = new SolidColorBrush(Color.FromRgb(254, 71, 117)),
-                }); 
+                    Values = new ChartValues<double> {70, 30, 42},
+                    Stroke = new SolidColorBrush(Color.FromRgb(254, 71, 117)),
+                    Fill = new SolidColorBrush(Color.FromRgb(254, 71, 117)),
+                    MaxColumnWidth = 10,
+                    Margin =new Thickness(10,0,0,0)
+                });
                 model.CharName = new[]
                 {
                     "产品销售",
                     "服务消费",
-                    "开卡重置",
+                    "开卡充值",
 
                 };
                 model.Formatter = value => value.ToString("N");

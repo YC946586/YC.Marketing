@@ -16,7 +16,7 @@
             <DataTemplate>
                 <Border  Margin="0 15 0 0"  CornerRadius="5" Background="White"  Height="180">
                     <StackPanel   Margin="25 15 25 0">
-                        <TextBlock Text="{Binding FunName}" FontSize="16" FontFamily="华文仿宋" FontWeight="Black" />
+                        <TextBlock Text="{Binding FunName}" FontSize="16" FontFamily="Calibri" FontWeight="Black" />
                         <ListView ItemsSource="{Binding  ListFuntions}"    >
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
