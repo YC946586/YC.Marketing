@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:converter="clr-namespace:YC.Client.Execute.Converter;assembly=YC.Client.Execute"
+             xmlns:converter1="clr-namespace:YC.Client.UI.Resources.Converter;assembly=YC.Client.UI.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <converter:NameToObjectConverter x:Key="ImgConvert"/>
-        <converter:ColorsConverter x:Key="ConvColor"/>
+        <converter1:NameToObjectConverter x:Key="ImgConvert"/>
+        <converter1:ColorsConverter x:Key="ConvColor"/>
     </UserControl.Resources>
     <Border  Margin="0 15 0 0"  CornerRadius="5" Background="White">
         <StackPanel  Margin="25 25 25 0">

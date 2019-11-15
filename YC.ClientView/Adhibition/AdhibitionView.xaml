@@ -5,15 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YC.ClientView.Adhibition"
              xmlns:themes="clr-namespace:YC.Client.UI.Resources.themes;assembly=YC.Client.UI.Resources"
+             xmlns:converter="clr-namespace:YC.Client.UI.Resources.Converter;assembly=YC.Client.UI.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:ColorsConverter x:Key="ConvColor"/>
+        <converter:NameToObjectConverter x:Key="ImgConvert"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <UniformGrid Columns="3"  Background="#F8F8F8" >
-            <Image Source="{DynamicResource Adhibition1}"/>
+            <Image Source="{DynamicResource Adhibition1}" />
             <Image Source="{DynamicResource Adhibition2}"/>
             <Image Source="{DynamicResource Adhibition3}"/>
         </UniformGrid>
@@ -30,8 +35,8 @@
                         <StackPanel  Margin="25 25 25 0">
                             <TextBlock>
                                 <Run Text="{Binding Title}" FontSize="16" FontFamily="Calibri" FontWeight="Black" />
-                                 <Run Text="{Binding TitleDepict,StringFormat={}    {0}}" Foreground="#A5A5A5"/>      
-                           </TextBlock>
+                                 <Run Text="{Binding TitleDepict,StringFormat={}    {0}}" Foreground="#A5A5A5"/>
+                            </TextBlock>
                             <ListBox ItemsSource="{Binding  ToolModesList}"  BorderThickness="0"  Margin="25 0 0 0">
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -43,13 +48,14 @@
                                     <Style TargetType="ListBoxItem">
                                         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                                         <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="Margin" Value="0 18 0 0"/>
                                         <Setter Property="HorizontalAlignment" Value="Left"/>
                                         <Setter Property="Background" Value="White"/>
                                         <!-- 设置控件模板 -->
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="ListBoxItem" >
-                                                    <themes:ButtonEx Background="Red" Content="{Binding FunName}" Uid="{Binding Depict}" ButtonType="IconText" ></themes:ButtonEx>
+                                                    <themes:ButtonEx Background="{Binding BrushsPath,Converter={StaticResource ConvColor}}" Content="{Binding FunName}" Uid="{Binding Depict}" Tag="{Binding FunName,Converter={StaticResource ImgConvert}}" ButtonType="IconText" ></themes:ButtonEx>
                                                 </ControlTemplate>
                                             </Setter.Value>
                                         </Setter>

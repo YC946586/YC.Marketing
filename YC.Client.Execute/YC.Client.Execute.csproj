@@ -80,9 +80,6 @@
   <ItemGroup>
     <Compile Include="Commons\Common.cs" />
     <Compile Include="Commons\RefreshCommon.cs" />
-    <Compile Include="Converter\ColorsConverter.cs" />
-    <Compile Include="Converter\FlagConverter.cs" />
-    <Compile Include="Converter\NameToObjectConverter.cs" />
     <Compile Include="UnityInjection\BootStrapper.cs" />
     <Compile Include="UnityInjection\ViewDialog\BaseViewDialog.cs" />
     <Compile Include="UnityInjection\ViewDialog\IModelDialog.cs" />

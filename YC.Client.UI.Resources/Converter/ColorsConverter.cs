@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace YC.Client.Execute.Converter
+namespace YC.Client.UI.Resources.Converter
 {
     /// <summary>
     /// 颜色转换器
