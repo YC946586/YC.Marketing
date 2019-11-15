@@ -20,7 +20,7 @@
                     <Style TargetType="ListBoxItem">
                         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                         <!--<Setter Property="Cursor" Value="Hand"/>-->
-                        <Setter Property="Margin" Value="0 20 0 20"/>
+                        <Setter Property="Margin" Value="0 20"/>
                         <Setter Property="HorizontalAlignment" Value="Left"/>
                         <Setter Property="VerticalAlignment" Value="Center"/>
                         <Setter Property="Background" Value="White"/>

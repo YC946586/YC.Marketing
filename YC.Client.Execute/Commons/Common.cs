@@ -36,6 +36,19 @@ namespace YC.Client.Execute.Commons
         }
 
         /// <summary>
+        /// 生成随机数
+        /// </summary>
+        /// <returns></returns>
+        public static int GetRandomSeed()
+        {
+            byte[] bytes = new byte[4];
+            System.Security.Cryptography.RNGCryptoServiceProvider rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            rng.GetBytes(bytes);
+            var seed= BitConverter.ToInt32(bytes, 0);
+            var random = new Random(seed).Next(5000);
+            return random;
+        }
+        /// <summary>
         /// 反射UserControl
         /// </summary>
         /// <returns></returns>

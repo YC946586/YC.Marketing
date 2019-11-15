@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using YC.Client.Entity.Zcgl;
 using YC.Client.Execute.UnityInjection;
 using YC.Client.Execute.UnityInjection.ViewDialog;
 using YC.Model.Asset;
@@ -17,7 +18,7 @@ namespace YC.ClientView.Asset
         }
     }
 
-    public class AssetViewDog : BaseView<AssetView, AssetViewModel, AssetModel>, IModel
+    public class AssetViewDog : BaseView<AssetView, AssetViewModel, UcZcglEntity>, IModel
     {
 
     }

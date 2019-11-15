@@ -4,25 +4,28 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YC.Client.Entity.Zcgl;
+using YC.Client.Execute.Commons;
 using YC.Client.Execute.UnityInjection.ViewDialog.CoreLib;
 using YC.Model.Asset;
 using YC.Model.Workbench;
 
 namespace YC.ViewModel.Asset
 {
-    public class AssetViewModel : BaseOperation<AssetModel>
+    /// <summary>
+    /// 资产管理
+    /// </summary>
+    public class AssetViewModel : BaseOperation<UcZcglEntity>
     {
-
-
-        private ObservableCollection<PayModel> _PayModelList;
+        private ObservableCollection<PayModel> _payModelList;
 
         /// <summary>
         /// 表单数据
         /// </summary>
         public ObservableCollection<PayModel> PayModelList
         {
-            get { return _PayModelList; }
-            set { _PayModelList = value; RaisePropertyChanged(); }
+            get { return _payModelList; }
+            set { _payModelList = value; RaisePropertyChanged(); }
         }
         private string _store;
         /// <summary>
@@ -37,36 +40,36 @@ namespace YC.ViewModel.Asset
                 RaisePropertyChanged();
             }
         }
+
         /// <summary>
         /// 初始化
         /// </summary>
-        public override void InitViewModel()
+        public override async void InitViewModel()
         {
             base.InitViewModel();
             Store = "999.00";
             PayModelList = new ObservableCollection<PayModel>();
 
-            for (int i = 0; i < 4; i++)
+            List<string> listPayList = new List<string> {"今日充值", "今日耗卡", "今日赠送", "储值金额"};
+         
+            listPayList.ForEach((ary) =>
             {
                 PayModel model = new PayModel()
                 {
-                    Type = "今日充值",
-                    Money = 500 * i + 200
+                    Type = ary,
+                    Money = Convert.ToDecimal(Common.GetRandomSeed())
                 };
                 PayModelList.Add(model);
-            }
-            AssetModel date = new AssetModel()
+            });
+
+            //Get Zcgllist
+            var assstEntity =await RequestConver.DataRequest<UcZcglEntity>.GetModelList();
+
+            if (assstEntity!=null&& assstEntity.Count!=0)
             {
-                StTime = DateTime.Now,
-                Type="充值",
-                Name="充值赠送了1000元",
-                Money=2982,
-                AccountNmae="系统账户",
-                AccountMoney=5322,
-                UserName="洋葱",
-                Phone=13666142357
-            };
-            GridModelList.Add(date);
+                assstEntity.ForEach((ary)=> GridModelList.Add(ary));
+            }
+           
         }
 
         /// <summary>

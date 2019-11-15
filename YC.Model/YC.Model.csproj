@@ -46,6 +46,7 @@
     <Reference Include="LiveCharts.Wpf">
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -67,6 +68,12 @@
     <Compile Include="Workbench\KhDataModel.cs" />
     <Compile Include="Workbench\TodoModel.cs" />
     <Compile Include="Workbench\WorkbenchModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\React.Client.Entity\YC.Client.Entity.csproj">
+      <Project>{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}</Project>
+      <Name>YC.Client.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

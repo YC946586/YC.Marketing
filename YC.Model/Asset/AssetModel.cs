@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YC.Client.Entity.Zcgl;
 
 namespace YC.Model.Asset
 {
@@ -120,6 +121,7 @@ namespace YC.Model.Asset
                 RaisePropertyChanged();
             }
         }
+        
     }
 
 

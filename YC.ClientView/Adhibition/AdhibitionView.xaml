@@ -4,12 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YC.ClientView.Adhibition"
+             xmlns:themes="clr-namespace:YC.Client.UI.Resources.themes;assembly=YC.Client.UI.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
-            <RowDefinition Height="180"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <UniformGrid Columns="3"  Background="#F8F8F8" >
@@ -18,64 +18,50 @@
             <Image Source="{DynamicResource Adhibition3}"/>
         </UniformGrid>
 
-        <Border  Margin="0 15 0 0"  Grid.Row="1" CornerRadius="5" Background="White">
-            <StackPanel  Margin="25 25 25 0">
-                <TextBlock  >
-                    <Run Text="经营渠道" FontSize="16" FontFamily="Calibri" FontWeight="Black" />
-                     <Run Text="    扩展内容覆盖" Foreground="#A5A5A5"/>
-                </TextBlock>
-                <ListBox ItemsSource="{Binding  ListFun}"  BorderThickness="0"  Margin="25 0 0 0">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid  Columns="4"  Rows="2"  >
-                            </UniformGrid>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Setter Property="Margin" Value="0,20,0,0"/>
-                            <Setter Property="HorizontalAlignment" Value="Left"/>
-                            <Setter Property="Background" Value="White"/>
-                            <!-- 设置控件模板 -->
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ListBoxItem" >
+        <ItemsControl ItemsSource="{Binding GridModelList}" FocusVisualStyle="{x:Null}"  Grid.Row="1" VerticalAlignment="Top">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border  Margin="0 15 0 0"  CornerRadius="5" Background="White">
+                        <StackPanel  Margin="25 25 25 0">
+                            <TextBlock>
+                                <Run Text="{Binding Title}" FontSize="16" FontFamily="Calibri" FontWeight="Black" />
+                                 <Run Text="{Binding TitleDepict,StringFormat={}    {0}}" Foreground="#A5A5A5"/>      
+                           </TextBlock>
+                            <ListBox ItemsSource="{Binding  ToolModesList}"  BorderThickness="0"  Margin="25 0 0 0">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid  Columns="3"   >
+                                        </UniformGrid>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="Background" Value="White"/>
+                                        <!-- 设置控件模板 -->
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListBoxItem" >
+                                                    <themes:ButtonEx Background="Red" Content="{Binding FunName}" Uid="{Binding Depict}" ButtonType="IconText" ></themes:ButtonEx>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
 
-                                        <StackPanel Orientation="Horizontal"  Width="110" Height="45" Background="White" >
-                                            <Border Background="{Binding IsCheck,Converter={StaticResource ConvColor},Mode=TwoWay}"   Width="45" Height="45" CornerRadius="25">
-                                                <Path Fill="White"  Stroke="White" Data="{Binding FunName,Converter={StaticResource imgConvert}}" Stretch="Uniform" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
-                                            </Border>
-                                            <TextBlock Margin="15 0 0 0" Text="{Binding FunName}" VerticalAlignment="Center"></TextBlock>
-                                        </StackPanel>
+                            </ListBox>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
-
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="true">
-                                                <Setter Property="Opacity"  Value="0.7"/>
-                                            </Trigger>
-
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <!-- 设置触发器 -->
-
-                            <Style.Triggers>
-                                <!--<Trigger Property="IsSelected" Value="true">
-                                            <Setter Property="Background" Value="#CFF5E2"/>
-
-                                        </Trigger>-->
-                                <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter Property="Background" Value="#CFF5E2"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
-
-                </ListBox>
-            </StackPanel>
-        </Border>
     </Grid>
 </UserControl>

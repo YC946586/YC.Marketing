@@ -69,12 +69,12 @@ namespace YC.RequestConver
         /// <summary>
         /// 获得数据列表
         /// </summary>
-        public static List<T> GetModelList(string strWhere)
+        public static  Task<List<T>> GetModelList(string strWhere="")
         {
             try
             {
                 Bridge<T> bll = new Bridge<T>();
-                return bll.GetModelList(strWhere);
+                return Task.FromResult(bll.GetModelList(strWhere));
             }
             catch (Exception ex)
             {

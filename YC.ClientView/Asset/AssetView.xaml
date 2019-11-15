@@ -6,12 +6,10 @@
              xmlns:local="clr-namespace:YC.ClientView.Asset"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-      
-    </UserControl.Resources>
+  <!--资产管理-->
     <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
             <!--<RowDefinition Height="70"/>-->
         </Grid.RowDefinitions>
@@ -58,16 +56,13 @@
                                             <TextBlock Text="{Binding Type,StringFormat={}{0}(元)}" FontSize="14"/>
                                             <TextBlock Margin="0 10 0 0"  Text="{Binding Money,StringFormat={}{0}.00 }" FontSize="16" FontWeight="Black"/>
                                         </StackPanel>
-
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
 
                         </Style>
                     </ListBox.ItemContainerStyle>
-
                 </ListBox>
-
             </StackPanel>
         </Border>
 
@@ -79,14 +74,14 @@
                                   Command="{Binding EditCommand}"/>
             </DataGrid.InputBindings>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding StTime,StringFormat={}{0:yyyy-MM-dd HH:mm}}" Header="创建时间"  Width="150"/>
-                <DataGridTextColumn Binding="{Binding Type}" Header="类型" Width="100"/>
-                <DataGridTextColumn Binding="{Binding Name}" Header="名称" Width="3*"/>
-                <DataGridTextColumn Binding="{Binding Money,StringFormat=￥{0}}" Header="金额" Width="120"/>
-                <DataGridTextColumn Binding="{Binding AccountNmae}" Header="账户名称"  Width="140"/>
-                <DataGridTextColumn Binding="{Binding AccountMoney,StringFormat=￥{0}}" Header="账户余额" Width="2*" />
-                <DataGridTextColumn Binding="{Binding UserName}" Header="会员" Width="2*"/>
-                <DataGridTextColumn Binding="{Binding Phone}" Header="手机号" Width="120" />
+                <DataGridTextColumn Binding="{Binding CJSJ,StringFormat={}{0:yyyy-MM-dd HH:mm}}" Header="创建时间"  Width="150"/>
+                <DataGridTextColumn Binding="{Binding ZCLX}" Header="类型" Width="100"/>
+                <DataGridTextColumn Binding="{Binding ZCMC}" Header="名称" Width="3*"/>
+                <DataGridTextColumn Binding="{Binding JE,StringFormat=￥{0}}" Header="金额" Width="120"/>
+                <DataGridTextColumn Binding="{Binding ZHMC}" Header="账户名称"  Width="140"/>
+                <DataGridTextColumn Binding="{Binding ZHYE,StringFormat=￥{0}}" Header="账户余额" Width="2*" />
+                <DataGridTextColumn Binding="{Binding NAME}" Header="会员" Width="2*"/>
+                <DataGridTextColumn Binding="{Binding PHONE}" Header="手机号" Width="120" />
                 <DataGridTemplateColumn Header="操作" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

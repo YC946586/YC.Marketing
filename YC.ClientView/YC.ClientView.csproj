@@ -192,6 +192,10 @@
       <Project>{f19b0180-92fe-4faf-bdff-348217a4ad7c}</Project>
       <Name>YC.Client.Execute</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YC.Client.UI.Resources\YC.Client.UI.Resources.csproj">
+      <Project>{82ee6ddc-3170-4e0b-9c6f-3c098db93e4b}</Project>
+      <Name>YC.Client.UI.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YC.Model\YC.Model.csproj">
       <Project>{BBAA8359-E681-48DC-8D92-4AE9E92A80CD}</Project>
       <Name>YC.Model</Name>

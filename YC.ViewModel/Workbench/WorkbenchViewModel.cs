@@ -73,7 +73,7 @@ namespace YC.ViewModel.Workbench
                         {
                             Title = item.Key,
                             TodeCount = item.Value.ToString("N2"),
-                            YestAmount = new Random().Next(500, 10000).ToString("N2")
+                            YestAmount =Common.GetRandomSeed().ToString(),
                         };
                         Thread.Sleep(100);
                         model.ListKhData.Add(khData);
