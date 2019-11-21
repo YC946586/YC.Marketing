@@ -62,7 +62,7 @@ namespace YC.ClientView
                     GetDialogWindow().DragMove();
                 }
             };
-            Messenger.Default.Register<string>(GetDialogWindow(), "MainExit", new Action<string>(async (msg) =>
+            Messenger.Default.Register<string>(GetDialogWindow(), "MainExit", new Action<string>( (msg) =>
             {
                 /* if (await Message.Msg.Question(msg))*/
                 this.Close();

@@ -75,7 +75,6 @@ namespace YC.ViewModel.Workbench
                             TodeCount = item.Value.ToString("N2"),
                             YestAmount =Common.GetRandomSeed().ToString(),
                         };
-                        Thread.Sleep(100);
                         model.ListKhData.Add(khData);
                     }
 
