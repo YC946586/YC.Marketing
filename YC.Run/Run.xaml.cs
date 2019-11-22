@@ -27,7 +27,11 @@ namespace YC.Run
             InitializeComponent();
             var clientAssbly = Assembly.LoadFrom(AppDomain.CurrentDomain.BaseDirectory + "\\YC.ClientView.dll");
             Activator.CreateInstance(clientAssbly.GetType("YC.ClientView.Acceptance"));
-            Application.Current.Shutdown(0);
+            if (Application.Current!=null)
+            {
+                Application.Current.Shutdown(0);
+            }
+           
         }
 
        

@@ -89,6 +89,9 @@
     <Compile Include="DefaultViewPage.xaml.cs">
       <DependentUpon>DefaultViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Login\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workbench\Advertising\AdvertisingView.xaml.cs">
       <DependentUpon>AdvertisingView.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DefaultViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

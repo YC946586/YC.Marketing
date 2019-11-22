@@ -11,6 +11,7 @@ using YC.Client.Execute.UnityInjection;
 using YC.Model;
 using YC.RequestConver;
 using YC.ViewModel;
+using YC.ViewModel.Login;
 
 namespace YC.ClientView
 {
@@ -21,12 +22,9 @@ namespace YC.ClientView
             try
             {
                 InitMain();
-                BootStrapper.Initialize();
-                //查询出当前角色可以使用的所有功能
-                LoginResultData.TheMainConfig = DataRequest<UcGnglEntity>.Addition(new UcGnglEntity());
-                MainViewModel view = new MainViewModel();
-                view.InitDefaultView(); //加载首页数据
-                var dialog = ServiceProvider.Instance.Get<IModelDialog>("MainViewDlg");
+                BootStrapper.Initialize(); 
+                LoginViewModel view = new LoginViewModel();
+                var dialog = ServiceProvider.Instance.Get<IModelDialog>("LoginViewDlg");
                 dialog.BindViewModel(view);
                 //client.InitBase();
                 dialog.ShowDialog(view.ExtendedOpenedEventHandler, view.ExtendedClosingEventHandler);

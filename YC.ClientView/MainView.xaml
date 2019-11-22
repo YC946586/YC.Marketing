@@ -9,7 +9,7 @@
         xmlns:converter1="clr-namespace:YC.Client.UI.Resources.Converter;assembly=YC.Client.UI.Resources"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         mc:Ignorable="d" WindowStyle="None"  Background="Transparent"
-        Title="MainWindow" Height="768" Width="1366">
+        Title="营销管理平台" Height="768" Width="1366">
     <!--<Window.DataContext>
         <viewModel:MainViewModel/>
      </Window.DataContext>-->
@@ -65,7 +65,7 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
-    <Border BorderThickness="5" BorderBrush="Black"  CornerRadius="15,15,15,15"  Background="White" >
+    <Border BorderThickness="5" BorderBrush="Black"  CornerRadius="15"  Background="White" >
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="170"/>
