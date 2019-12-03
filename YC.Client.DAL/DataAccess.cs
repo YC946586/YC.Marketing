@@ -48,8 +48,8 @@ namespace YC.Client.Data
 
                     }
                 } 
-                //通过反射获取到DAL类 因为都是当前路径 就写死路径
-                var classNamespace = Assembly.Load("YC.Client.Data").CreateInstance(assemblyPath);
+                //通过反射获取到DAL类 
+                var classNamespace = Assembly.Load(Assembly.GetExecutingAssembly().FullName).CreateInstance(assemblyPath);
                 return classNamespace as IUsDataDal<T>;
 
                 //方式2 			

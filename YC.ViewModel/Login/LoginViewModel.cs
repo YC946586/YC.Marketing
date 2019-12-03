@@ -15,8 +15,8 @@ namespace YC.ViewModel.Login
         #region 用户名/密码
 
         private string _Report;
-        private string userName = string.Empty;
-        private string passWord = string.Empty;
+        private string userName = "11";
+        private string passWord = "11";
         private bool _UserChecked;
         private string _SkinName;
 
@@ -127,7 +127,7 @@ namespace YC.ViewModel.Login
                     MessageBox.Show("请输入关键字");
                 }
             }
-            catch (Exception )
+            catch (Exception EX)
             {
                 this.Report = "系统出现故障,请联系管理员处理";
 
