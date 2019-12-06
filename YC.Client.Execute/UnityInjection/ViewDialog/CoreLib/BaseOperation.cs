@@ -65,6 +65,7 @@ namespace YC.Client.Execute.UnityInjection.ViewDialog.CoreLib
         {
             GridModelList = new ObservableCollection<T>();   
             this.Query(); //获取首次加载数据
+            
         }
 
 
