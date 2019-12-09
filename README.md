@@ -122,8 +122,8 @@
 ![工作区](http://chuantu.xyz/t6/703/1575894654x1033347913.png "工作区")
 
 ### 感谢 以下项目不区分排行
-lvcharts 地址：https://lvcharts.net/
-ZFC 地址:https://www.cnblogs.com/zh7791/p/11456132.html
-MaterialDesign 地址: https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit
+* lvcharts 地址：https://lvcharts.net/
+* ZFC 地址:https://www.cnblogs.com/zh7791/p/11456132.html
+* MaterialDesign 地址: https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit
 
 ### End
