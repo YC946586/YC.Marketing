@@ -122,5 +122,6 @@
 * lvcharts 地址：https://lvcharts.net/
 * ZFC 地址:https://www.cnblogs.com/zh7791/p/11456132.html
 * MaterialDesign 地址: https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit
+* HandyControl 地址: https://github.com/HandyOrg/HandyControl
 
 ### End
