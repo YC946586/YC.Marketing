@@ -31,7 +31,7 @@ namespace YC.Client.Execute.Commons
         public static List<UcGnglEntity> GetGnglEntityByFjd(string funFid)
         {
             var liveFun =
-                LoginResultData.TheMainConfig.Where(s => !string.IsNullOrEmpty(s.F_FJDZJ) && s.F_FJDZJ.Equals(funFid)).ToList();  
+                LoginResultData.TheMainConfig.Where(s => !string.IsNullOrEmpty(s.F_FJDZJ) && s.F_FJDZJ.Equals(funFid)).OrderBy(s=>s.JDPX).ToList();  
             return liveFun;
         }
 

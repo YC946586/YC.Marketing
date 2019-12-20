@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="YC.ClientView.Setting.Content.UserInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:YC.ClientView.Setting.Content"
+             xmlns:converter="clr-namespace:YC.Client.UI.Resources.Converter;assembly=YC.Client.UI.Resources"
+             mc:Ignorable="d" 
+             >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converter:NameToObjectConverter x:Key="ImgConvert"/>
+            <Style   TargetType="{x:Type TextBlock }">
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Calibri"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="用户信息" FontSize="18" FontFamily="Gender" Margin="0 20"/>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="440"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Margin="0 15 0 0">
+                <TextBlock Text="昵称:" Height="30"/>
+                <TextBlock Margin="0 15" Text="介绍:" Height="50"/>
+                <TextBlock Text="性别:"/>
+                <TextBlock Margin="0 15" Text="生日:"/>
+            </StackPanel>
+            <ListView ItemsSource="{Binding GridModelList}" Grid.Column="1" >
+                <TextBox  Height="30"  Width="400"/>
+                <TextBox  Height="50" Width="400" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Top"/>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton GroupName="Gender" Content="保密"/>
+                    <RadioButton GroupName="Gender" Margin="20 0" Content="男"/>
+                    <RadioButton GroupName="Gender" Content="女"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox  Width="100" SelectedIndex="0">
+                        <ComboBoxItem>1995年</ComboBoxItem>
+                        <ComboBoxItem>1994年</ComboBoxItem>
+                        <ComboBoxItem>1993年</ComboBoxItem>
+                        <ComboBoxItem>1992年</ComboBoxItem>
+                        <ComboBoxItem>1991年</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox  Width="60" Margin="20 0" SelectedIndex="0">
+                        <ComboBoxItem>1月</ComboBoxItem>
+                        <ComboBoxItem>2月</ComboBoxItem>
+                        <ComboBoxItem>3月</ComboBoxItem>
+                        <ComboBoxItem>4月</ComboBoxItem>
+                        <ComboBoxItem>5月</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox  Width="50" SelectedIndex="0">
+                        <ComboBoxItem>1日</ComboBoxItem>
+                        <ComboBoxItem>2日</ComboBoxItem>
+                        <ComboBoxItem>3日</ComboBoxItem>
+                        <ComboBoxItem>4日</ComboBoxItem>
+
+
+                    </ComboBox>
+                </StackPanel>
+            </ListView>
+        </Grid>
+    </StackPanel>
+ 
+</UserControl>

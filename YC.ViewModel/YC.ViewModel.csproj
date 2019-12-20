@@ -82,6 +82,7 @@
     <Compile Include="MainEmbedViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setting\SettingViewModel.cs" />
     <Compile Include="Workbench\WorkbenchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
