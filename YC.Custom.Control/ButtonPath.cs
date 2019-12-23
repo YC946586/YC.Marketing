@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace YC.Client.UI.Resources.themes
+namespace YC.Custom.Control
 {
-    public class ButtonEx : Button
+    public class ButtonPath : Button
     {
-        static ButtonEx()
+        static ButtonPath()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ButtonEx), new FrameworkPropertyMetadata(typeof(ButtonEx)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(ButtonPath), new FrameworkPropertyMetadata(typeof(ButtonPath)));
         }
 
 
@@ -24,7 +19,7 @@ namespace YC.Client.UI.Resources.themes
         }
 
         public static readonly DependencyProperty ButtonTypeProperty =
-            DependencyProperty.Register("ButtonType", typeof(ButtonType), typeof(ButtonEx),
+            DependencyProperty.Register("ButtonType", typeof(ButtonType), typeof(ButtonPath),
                 new PropertyMetadata(ButtonType.IconText));
 
 
@@ -35,7 +30,7 @@ namespace YC.Client.UI.Resources.themes
         }
 
         public static readonly DependencyProperty IconProperty =
-            DependencyProperty.Register("Icon", typeof(ImageSource), typeof(ButtonEx), new PropertyMetadata(null));
+            DependencyProperty.Register("Icon", typeof(ImageSource), typeof(ButtonPath), new PropertyMetadata(null));
 
 
         public CornerRadius CornerRadius
@@ -45,7 +40,7 @@ namespace YC.Client.UI.Resources.themes
         }
 
         public static readonly DependencyProperty CornerRadiusProperty =
-            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ButtonEx),
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ButtonPath),
                 new PropertyMetadata(new CornerRadius(0)));
 
 
@@ -56,7 +51,7 @@ namespace YC.Client.UI.Resources.themes
         }
 
         public static readonly DependencyProperty MouseOverForegroundProperty =
-            DependencyProperty.Register("MouseOverForeground", typeof(Brush), typeof(ButtonEx), new PropertyMetadata());
+            DependencyProperty.Register("MouseOverForeground", typeof(Brush), typeof(ButtonPath), new PropertyMetadata());
 
 
         public Brush MousePressedForeground
@@ -66,7 +61,7 @@ namespace YC.Client.UI.Resources.themes
         }
 
         public static readonly DependencyProperty MousePressedForegroundProperty =
-            DependencyProperty.Register("MousePressedForeground", typeof(Brush), typeof(ButtonEx),
+            DependencyProperty.Register("MousePressedForeground", typeof(Brush), typeof(ButtonPath),
                 new PropertyMetadata());
 
 
@@ -77,7 +72,7 @@ namespace YC.Client.UI.Resources.themes
         }
 
         public static readonly DependencyProperty MouseOverBorderbrushProperty =
-            DependencyProperty.Register("MouseOverBorderbrush", typeof(Brush), typeof(ButtonEx), new PropertyMetadata());
+            DependencyProperty.Register("MouseOverBorderbrush", typeof(Brush), typeof(ButtonPath), new PropertyMetadata());
 
 
         public Brush MouseOverBackground
@@ -87,7 +82,7 @@ namespace YC.Client.UI.Resources.themes
         }
 
         public static readonly DependencyProperty MouseOverBackgroundProperty =
-            DependencyProperty.Register("MouseOverBackground", typeof(Brush), typeof(ButtonEx), new PropertyMetadata());
+            DependencyProperty.Register("MouseOverBackground", typeof(Brush), typeof(ButtonPath), new PropertyMetadata());
 
 
         public Brush MousePressedBackground
@@ -97,7 +92,7 @@ namespace YC.Client.UI.Resources.themes
         }
 
         public static readonly DependencyProperty MousePressedBackgroundProperty =
-            DependencyProperty.Register("MousePressedBackground", typeof(Brush), typeof(ButtonEx),
+            DependencyProperty.Register("MousePressedBackground", typeof(Brush), typeof(ButtonPath),
                 new PropertyMetadata());
     }
 

@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YC.ClientView.Adhibition"
-             xmlns:themes="clr-namespace:YC.Client.UI.Resources.themes;assembly=YC.Client.UI.Resources"
-             xmlns:converter="clr-namespace:YC.Client.UI.Resources.Converter;assembly=YC.Client.UI.Resources"
+             xmlns:converter="clr-namespace:YC.Client.Execute.Converter;assembly=YC.Client.Execute"
+             xmlns:control="clr-namespace:YC.Custom.Control;assembly=YC.Custom.Control"
+
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -55,7 +56,7 @@
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="ListBoxItem" >
-                                                    <themes:ButtonEx Background="{Binding BrushsPath,Converter={StaticResource ConvColor}}" Content="{Binding FunName}" Uid="{Binding Depict}" Tag="{Binding FunName,Converter={StaticResource ImgConvert}}" ButtonType="IconText" ></themes:ButtonEx>
+                                                    <control:ButtonPath Background="{Binding BrushsPath,Converter={StaticResource ConvColor}}" Content="{Binding FunName}" Uid="{Binding Depict}" Tag="{Binding FunName,Converter={StaticResource ImgConvert}}" ButtonType="IconText" ></control:ButtonPath>
                                                 </ControlTemplate>
                                             </Setter.Value>
                                         </Setter>
@@ -71,3 +72,4 @@
 
     </Grid>
 </UserControl>
+

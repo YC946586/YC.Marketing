@@ -3,17 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:YC.ClientView.Setting.Content"
-             xmlns:converter="clr-namespace:YC.Client.UI.Resources.Converter;assembly=YC.Client.UI.Resources"
              mc:Ignorable="d" 
              >
     <UserControl.Resources>
         <ResourceDictionary>
-            <converter:NameToObjectConverter x:Key="ImgConvert"/>
             <Style   TargetType="{x:Type TextBlock }">
                 <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
-                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontFamily" Value="Calibri"/>
             </Style>
         </ResourceDictionary>
@@ -22,19 +19,19 @@
         <TextBlock Text="用户信息" FontSize="18" FontFamily="Gender" Margin="0 20"/>
         <Grid >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="80"/>
                 <ColumnDefinition Width="440"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Vertical" Margin="0 15 0 0">
                 <TextBlock Text="昵称:" Height="30"/>
                 <TextBlock Margin="0 15" Text="介绍:" Height="50"/>
                 <TextBlock Text="性别:"/>
-                <TextBlock Margin="0 15" Text="生日:"/>
+                <TextBlock Margin="0 25 0 0" Text="生日:"/>
             </StackPanel>
             <ListView ItemsSource="{Binding GridModelList}" Grid.Column="1" >
                 <TextBox  Height="30"  Width="400"/>
-                <TextBox  Height="50" Width="400" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Top"/>
-                <StackPanel Orientation="Horizontal">
+                <TextBox  Height="50" Width="400" BorderThickness="1" TextAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Top"/>
+                <StackPanel Orientation="Horizontal"  Margin="0 5 0 0 ">
                     <RadioButton GroupName="Gender" Content="保密"/>
                     <RadioButton GroupName="Gender" Margin="20 0" Content="男"/>
                     <RadioButton GroupName="Gender" Content="女"/>
@@ -59,8 +56,6 @@
                         <ComboBoxItem>2日</ComboBoxItem>
                         <ComboBoxItem>3日</ComboBoxItem>
                         <ComboBoxItem>4日</ComboBoxItem>
-
-
                     </ComboBox>
                 </StackPanel>
             </ListView>

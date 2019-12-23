@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceptance.cs" />
+    <Compile Include="Additional\SkinViewModel.cs" />
     <Compile Include="Adhibition\AdhibitionView.xaml.cs">
       <DependentUpon>AdhibitionView.xaml</DependentUpon>
     </Compile>
@@ -91,6 +92,12 @@
     </Compile>
     <Compile Include="Login\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\Content\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\Content\AccountView.xaml.cs">
+      <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Setting\Content\UserInfoView.xaml.cs">
       <DependentUpon>UserInfoView.xaml</DependentUpon>
@@ -147,6 +154,14 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Setting\Content\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\Content\AccountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Setting\Content\UserInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,9 +228,9 @@
       <Project>{f19b0180-92fe-4faf-bdff-348217a4ad7c}</Project>
       <Name>YC.Client.Execute</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YC.Client.UI.Resources\YC.Client.UI.Resources.csproj">
-      <Project>{82ee6ddc-3170-4e0b-9c6f-3c098db93e4b}</Project>
-      <Name>YC.Client.UI.Resources</Name>
+    <ProjectReference Include="..\YC.Custom.Control\YC.Custom.Control.csproj">
+      <Project>{9442d881-231b-42dc-855f-d19c1d9abee4}</Project>
+      <Name>YC.Custom.Control</Name>
     </ProjectReference>
     <ProjectReference Include="..\YC.Model\YC.Model.csproj">
       <Project>{BBAA8359-E681-48DC-8D92-4AE9E92A80CD}</Project>

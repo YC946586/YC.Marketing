@@ -1,15 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-                    xmlns:controlzEx="clr-namespace:ControlzEx;assembly=MaterialDesignThemes.Wpf"
-                    xmlns:local="clr-namespace:YC.Client.UI.Resources.themes"
-                    xmlns:converter="clr-namespace:YC.Client.UI.Resources.Converter">
+                    xmlns:controlzEx="clr-namespace:ControlzEx;assembly=MaterialDesignThemes.Wpf">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/YC.Custom.Control;component/Themes/Generic.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 
@@ -17,6 +16,8 @@
     <!--登录窗体-->
     <ImageBrush x:Key="MainBack" ImageSource="pack://application:,,,/YC.Client.UI.Resources;component/Images/MainBack.jpg" Stretch="Uniform" ></ImageBrush>
 
+    <BitmapImage x:Key="Alipay" UriSource="pack://application:,,,/YC.Client.UI.Resources;component/Images/Alipay.png"></BitmapImage>
+    
     <ImageBrush x:Key="HaderIcon" ImageSource="pack://application:,,,/YC.Client.UI.Resources;component/Images/MainHader.jpg"></ImageBrush>
     <BitmapImage x:Key="正在开发" UriSource="pack://application:,,,/YC.Client.UI.Resources;component/Images/正在开发.png"></BitmapImage>
     
@@ -457,42 +458,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-
-    <Style TargetType="{x:Type local:ButtonEx}">
-        <Style.Triggers>
-            <Trigger Property="ButtonType" Value="IconText">
-                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-                <Setter Property="Cursor" Value="Hand"/>
-                <Setter Property="Margin" Value="0  0 0 20"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type local:ButtonEx}">
-                            <StackPanel Orientation="Horizontal"  Width="240" Height="60" Background="White" Opacity="10"  >
-                                <Border Background="{TemplateBinding Background}"   Width="45" Height="45" CornerRadius="25">
-                                    <Path Fill="White"   Data="{TemplateBinding Tag}"  Stretch="Uniform" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
-                                </Border>
-                                <StackPanel Orientation="Vertical"  Margin="15 0 0 0" VerticalAlignment="Center">
-                                    <TextBlock Text="{TemplateBinding Content}" Margin="0 8" FontWeight="Black" FontFamily="Calibri" />
-                                    <TextBlock Text="{TemplateBinding Uid}" Foreground="#CCCCCC" FontSize="11"/>
-
-                                </StackPanel>
-                            </StackPanel>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8" />
-                                </Trigger>
-                                <!--<Trigger Property="IsPressed" Value="True">
-                                        <Setter Property="Foreground" Value="{Binding MousePressedForeground,RelativeSource={RelativeSource TemplatedParent}}" TargetName="Txt"/>
-                                    </Trigger>-->
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
 
 
     <!--单元格样式触发-->

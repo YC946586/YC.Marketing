@@ -6,7 +6,7 @@
         xmlns:viewModel="clr-namespace:YC.ViewModel;assembly=YC.ViewModel"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:clientView="clr-namespace:YC.ClientView"
-        xmlns:converter1="clr-namespace:YC.Client.UI.Resources.Converter;assembly=YC.Client.UI.Resources"
+        xmlns:converter="clr-namespace:YC.Client.Execute.Converter;assembly=YC.Client.Execute"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         mc:Ignorable="d" WindowStyle="None"  Background="Transparent"
         Title="营销管理平台" Height="768" Width="1366">
@@ -15,8 +15,8 @@
      </Window.DataContext>-->
     <Window.Resources>
         <ResourceDictionary>
-            <converter1:NameToObjectConverter x:Key="ImgConvert"/>
-            <converter1:FlagConverter x:Key="flag"/>
+            <converter:NameToObjectConverter x:Key="ImgConvert"/>
+            <converter:FlagConverter x:Key="flag"/>
             <Style x:Key="ButtonStylePopup" TargetType="{x:Type RadioButton }">
                 <Setter Property="Width" Value="120"/>
                 <Setter Property="Height" Value="35"/>

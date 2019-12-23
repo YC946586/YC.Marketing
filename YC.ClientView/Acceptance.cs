@@ -8,6 +8,7 @@ using System.Windows;
 using YC.Client.Entity;
 using YC.Client.Entity.Gngl;
 using YC.Client.Execute.UnityInjection;
+using YC.ClientView.Additional;
 using YC.Model;
 using YC.RequestConver;
 using YC.ViewModel;
@@ -56,6 +57,9 @@ namespace YC.ClientView
             {
                 Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\Images");
             }
+
+            SkinViewModel skin=new SkinViewModel();
+            skin.ApplyDefault("#C62F2F");
         }
     }
 }

@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YC.Client.Data", "YC.Client
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YC.Client.Entity", "React.Client.Entity\YC.Client.Entity.csproj", "{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YC.Custom.Control", "YC.Custom.Control\YC.Custom.Control.csproj", "{9442D881-231B-42DC-855F-D19C1D9ABEE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{DDCB44B0-1A0C-428D-BF02-7265972B1D8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,13 +69,19 @@ Global
 		{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F95E31E-18B7-4D6D-AAFE-9CAF1D522606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9442D881-231B-42DC-855F-D19C1D9ABEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9442D881-231B-42DC-855F-D19C1D9ABEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9442D881-231B-42DC-855F-D19C1D9ABEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9442D881-231B-42DC-855F-D19C1D9ABEE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6DB7E1A1-8A0F-49C7-B064-CD626681A06D} = {EFE1A44E-30E2-41FD-BA46-FDD2CC36ED68}
+		{82EE6DDC-3170-4E0B-9C6F-3C098DB93E4B} = {DDCB44B0-1A0C-428D-BF02-7265972B1D8B}
 		{4EBC2132-F92E-4E05-BC21-3DDA8AE07D3A} = {EFE1A44E-30E2-41FD-BA46-FDD2CC36ED68}
+		{9442D881-231B-42DC-855F-D19C1D9ABEE4} = {DDCB44B0-1A0C-428D-BF02-7265972B1D8B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {47A96827-674B-40E6-8C99-E31B8F5D345A}

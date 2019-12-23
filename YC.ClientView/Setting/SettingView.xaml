@@ -4,23 +4,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YC.ClientView.Setting"
-             xmlns:converter="clr-namespace:YC.Client.UI.Resources.Converter;assembly=YC.Client.UI.Resources"
+             xmlns:converter="clr-namespace:YC.Client.Execute.Converter;assembly=YC.Client.Execute"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <converter:NameToObjectConverter x:Key="ImgConvert"/>
-        </ResourceDictionary>
-    </UserControl.Resources>
+   
     <Border CornerRadius="5" Background="White">
-        <Grid Margin="40">
+        <Grid   Width="900" Height="500">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <ListBox  ItemsSource="{Binding GridModelList}" x:Name="ListBox"
-                 SelectionChanged="ListBox_OnSelectionChanged">
-
+                 SelectionChanged="ListBox_OnSelectionChanged"   >
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -77,13 +72,12 @@
             <ScrollViewer  x:Name="ScrollViewer"  Margin="25 0 0 0"
                       Grid.Column="1" FocusVisualStyle="{x:Null}"
                       ScrollChanged="ScrollViewer_OnScrollChanged" >
-                <ItemsControl  ItemsSource="{Binding ContentList}" x:Name="ItemsControl">
+                <ItemsControl  ItemsSource="{Binding ContentList}" x:Name="ItemsControl" Style="{x:Null}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border BorderThickness="0 0 0 2" BorderBrush="#CCCCCC" VerticalAlignment="Top">
-                                <ContentControl  Margin="30 30 0 30"  FocusVisualStyle="{x:Null}"  Content="{Binding Body}" />
+                                <ContentControl  Margin="30 30 0 30"  FocusVisualStyle="{x:Null}" Style="{x:Null}" Content="{Binding Body}" />
                             </Border>
-
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

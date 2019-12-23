@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:YC.ClientView.Login"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        xmlns:converter="clr-namespace:YC.Client.UI.Resources.Converter;assembly=YC.Client.UI.Resources"
+        xmlns:converter1="clr-namespace:YC.Client.Execute.Converter;assembly=YC.Client.Execute"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         mc:Ignorable="d" WindowStyle="None"  Background="Transparent"
         Title="Login" Height="450" Width="360">
@@ -33,9 +33,9 @@
                 <PasswordBox Grid.Row="3" Width="200"  materialDesign:HintAssist.Hint="请输入密码"
                          Foreground="Black"  FontSize="15"
                          Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  
-                         converter:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                         converter1:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                     <i:Interaction.Behaviors>
-                        <converter:PasswordBoxBehavior />
+                        <converter1:PasswordBoxBehavior />
                     </i:Interaction.Behaviors>
                 </PasswordBox>
 
